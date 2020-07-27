@@ -11,7 +11,8 @@
     - Powershell para inserir separadores em arquivos de texto (e.g. txt dos microdados do Censo 2010)
 
 ## Por quê
- - Facilidade de consulta e disseminação
+ - Facilidade de consulta
+ - Disseminação para pessoas próximas que não tiveram muito contato com programação
 
 ## Método
  - Buscas nas documentações dos programas
