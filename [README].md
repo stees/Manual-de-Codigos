@@ -1,5 +1,5 @@
 # Compilação de códigos simples de programação
-Separadores nos microdados do Censo 2010
+
 ## O quê
  - Compilação de códigos simples para processamento de diversos tipos de arquivos (videos, zip, áudios, imagens, textos)
     - 7zip para compressão de .txt em gzip
@@ -13,9 +13,3 @@ Separadores nos microdados do Censo 2010
  - Buscas nas documentações dos programas
  - Buscas no Stack Exchange
  - Videos do YouTube
-
-## Conclusões
- - 
-
-## Próximos passos
- - 
