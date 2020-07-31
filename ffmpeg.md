@@ -31,6 +31,12 @@
 ## extrai todos os frames (-r = ffps, -t duração, -ss início, nome frame_1-1_0001, 0002, etc)
 `ffmpeg -i arquivo.mkv -r 8 -t 1000 -ss 0:00 -f image2 ./frames/frame_1-1_%4d.png`
 
+## gira 90 graus anti-horário e mantém os outros metadados
+`ffmpeg -i "input.m4v" -map_metadata 0 -metadata:s:v rotate="90" -codec copy "output.m4v"`
+
+## corta 100 do width (largura) do video
+`ffmpeg -i "in.mp4" -filter:v "crop=in_w-100:in_h" -c:a copy "out.mp4"`
+
 # áudios
 ## transformar em mp3 sem video (vn) e mesmo codec de audio (acodec copy)
 `ffmpeg -i input.mp4 -vn -c:a libmp3lame -write_xing 0 output.mp3`
