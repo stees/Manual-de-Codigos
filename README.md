@@ -5,7 +5,7 @@
 [Códigos de ffmpeg para manipulações de arquivos audiovisuais](https://github.com/stees/Manual-de-Codigos/blob/master/ffmpeg.md)
 
 ## O quê
- - Compilação de códigos simples para processamento de diversos tipos de arquivos (videos, zip, áudios, imagens, textos)
+ - Compilação de códigos para processamento de diversos tipos de arquivos (videos, zip, áudios, imagens, textos)
     - 7zip para compressão de .txt em gzip
     - ffmpeg para processamentos básicos diversos com vídeos, áudios e imagens
     - Powershell para inserir separadores em arquivos de texto (e.g. txt dos microdados do Censo 2010)
