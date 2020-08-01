@@ -1,4 +1,7 @@
 # geral
+## codificação UTF8
+`chcp 65001`
+
 ## lista de arquivos na pasta
 `dir /s /b *.mp4 >listmp4.txt`
 
