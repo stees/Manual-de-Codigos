@@ -1,5 +1,6 @@
 # Compilação de códigos simples de programação
 
+[Códigos do prompt de comando](https://github.com/stees/Manual-de-Codigos/blob/master/cmd.md) \
 [Códigos de 7zip para compressão de arquivos](https://github.com/stees/Manual-de-Codigos/blob/master/7zip.md) \
 [Códigos de PowerShell para manipulações diversas de arquivos](https://github.com/stees/Manual-de-Codigos/blob/master/PowerShell.md) \
 [Códigos de ffmpeg para manipulações de arquivos audiovisuais](https://github.com/stees/Manual-de-Codigos/blob/master/ffmpeg.md)
