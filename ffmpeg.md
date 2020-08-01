@@ -1,10 +1,4 @@
 # geral
-## codificação UTF8
-`chcp 65001`
-
-## lista de arquivos na pasta
-`dir /s /b *.mp4 >listmp4.txt`
-
 ## roda o código depois de ffmpeg para todos os arquivos de tipo mp4 na pasta (%% por ser arquivo .bat)
 `for %%i in (*.mp4) do ffmpeg -i "%%i" -vn -c:a libmp3lame -write_xing 0 "%%~ni.mp3"`
 
