@@ -13,6 +13,9 @@
 `ffmpeg -i source-file.foo -ss 600 -t 600 second-10-min.m4v`
 `ffmpeg -i source-file.foo -ss 1200 -t 600 third-10-min.m4v`
 
+## escrever saídas no prompt de comando para um arquivo de texto
+`ffmpeg CÓDIGO > output.txt 2>&1`
+
 # videos
 ## diminuir tamanho sem diminuir qualidade
 `ffmpeg -i input.mp4 -crf 28 output.mp4`
