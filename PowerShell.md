@@ -1,3 +1,7 @@
+# geral
+## rodando comandos do CMD
+`cmd /c --% COMANDO` (--% é para PowerShell não tentar processar o que vem depois como sua própria sintaxe)
+
 # texto
 ## justapor arquivos de texto
 `cat example*.txt | sc allexamples.txt`
