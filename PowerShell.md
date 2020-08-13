@@ -1,4 +1,7 @@
 # texto
+## justapor arquivos de texto
+`cat example*.txt | sc allexamples.txt`
+
 ## inserção de separadores em posições específicas (depois do caractere 4, 10, 17, etc)
 `$lines = Get-Content "teste.txt"`
 `ForEach ($x in $lines) {`
