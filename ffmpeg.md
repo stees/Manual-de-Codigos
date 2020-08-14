@@ -5,8 +5,14 @@
 ## juntar arquivos diferentes num mesmo video
 `ffmpeg -i opening.mkv -i episode.mkv -i ending.mkv -filter_complex "[0:v] [0:a] [1:v] [1:a] [2:v] [2:a] concat=n=3:v=1:a=1 [v] [a]" -map "[v]" -map "[a]" output.mkv`
 
-## extrai do arquivo os trechos entre 4-7, 17-26 e 74-91 segundos
+## picotando arquivo
+### começando em 1 min, terminando em 2 min
+`ffmpeg -ss 00:01:00 -i "input.mp4" -to 00:02:00 -c copy "output.mp4" \\
+
+### trechos entre 4-7, 17-26 e 74-91 segundos
 `ffmpeg -i video.mp4 -vf "select='between(t,4,7)+between(t,17,26)+between(t,74,91)', setpts=N/FRAME_RATE/TB" -af "aselect='between(t,4,7)+between(t,17,26)+between(t,74,91)',asetpts=N/SR/TB" out.mp4`
+
+
 
 ## picota o arquivo em várias partes (-ss diz onde começa, -t diz DURAÇÃO, não tempo final)
 `ffmpeg -i source-file.foo -ss 0 -t 600 first-10-min.m4v`
