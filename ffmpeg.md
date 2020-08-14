@@ -56,6 +56,10 @@
 ## removendo silêncios do começo ao fim
 `ffmpeg -i "INPUT.ogg" -af silenceremove=stop_periods=-1:stop_duration=1:stop_threshold=-90dB "OUTPUT.ogg"`
 
+## complexos
+### (velocidade 2.1) + (ogg -> mp3)
+`for %%i in (*.ogg) do ffmpeg -i "%%i" -filter:a "atempo=2.1" -acodec libmp3lame "%%~ni.mp3"`
+
 # videos + áudios
 ## juntando um audio a um video
 `ffmpeg -i video.mp4 -i audio.wav -c:v copy -c:a aac -map 0:v:0 -map 1:a:0 output.mp4`
