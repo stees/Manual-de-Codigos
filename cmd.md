@@ -6,7 +6,7 @@
 `dir /s /b *.mp4 >listmp4.txt`
 
 ## copia todos arquivos de extensão .xlsm do Desktop do "usuario" para a pasta do OneDrive
-`robocopy "C:\Users\usuario\Desktop" "C:\Users\usuario\OneDrive" *.xlsm /z /it /is`
+`robocopy "C:\Users\usuario\Desktop" "C:\Users\usuario\pasta" *.xlsm /z /it /is`
  - repete se falhar (/z)
  - copia se tiver mudado (/it)
  - copia se não tiver mudado (/is)
