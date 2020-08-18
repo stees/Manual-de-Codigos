@@ -5,6 +5,9 @@
 ## juntar arquivos diferentes num mesmo video
 `ffmpeg -i opening.mkv -i episode.mkv -i ending.mkv -filter_complex "[0:v] [0:a] [1:v] [1:a] [2:v] [2:a] concat=n=3:v=1:a=1 [v] [a]" -map "[v]" -map "[a]" output.mkv`
 
+## aplicando dois comandos no mesmo filtro
+`ffmpeg -i "input.mp4" -filter:v "scale=-1:480, fps=fps=30" "output.mp4"`
+
 ## picotando arquivo
 ### definindo o que tem que ter -> começando em 1 min, terminando em 2 min (-ss = onde começa, -t = onde termina)
 `ffmpeg -t 00:02:00 -i "input.mp4" -ss 00:01:00 "output.mp4"`
