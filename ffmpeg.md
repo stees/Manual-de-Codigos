@@ -7,7 +7,7 @@
 
 ## picotando arquivo
 ### definindo o que tem que ter -> começando em 1 min, terminando em 2 min (-ss = onde começa, -to = onde termina)
-`ffmpeg -ss 00:01:00 -i "input.mp4" -to 00:02:00 -c copy "output.mp4"` \
+`ffmpeg -ss 00:01:00 -i "input.mp4" -to 00:02:00 -c copy "output.mp4"`
 
 ### definindo o que não tem que ter -> trechos entre 4-7, 17-26 e 74-91 segundos
 `ffmpeg -i video.mp4 -vf "select='between(t,4,7)+between(t,17,26)+between(t,74,91)', setpts=N/FRAME_RATE/TB" -af "aselect='between(t,4,7)+between(t,17,26)+between(t,74,91)',asetpts=N/SR/TB" out.mp4`
