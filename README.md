@@ -1,9 +1,10 @@
 # Compilação de códigos simples de programação
 
-[Prompt de comando](https://github.com/stees/Manual-de-Codigos/blob/master/cmd.md) \
-[7zip para compressão de arquivos](https://github.com/stees/Manual-de-Codigos/blob/master/7zip.md) \
-[PowerShell para manipulações diversas de arquivos](https://github.com/stees/Manual-de-Codigos/blob/master/PowerShell.md) \
-[ffmpeg para manipulações de arquivos audiovisuais](https://github.com/stees/Manual-de-Codigos/blob/master/ffmpeg.md)
+[Prompt de comando - funções gerais no sistema operacional](https://github.com/stees/Manual-de-Codigos/blob/master/cmd.md) \
+[7zip - compressão de arquivos](https://github.com/stees/Manual-de-Codigos/blob/master/7zip.md) \
+[PowerShell - manipulações diversas de arquivos](https://github.com/stees/Manual-de-Codigos/blob/master/PowerShell.md) \
+[ffmpeg - manipulações de arquivos audiovisuais](https://github.com/stees/Manual-de-Codigos/blob/master/ffmpeg.md) \
+[regex - buscas por padrões em texto](https://github.com/stees/Manual-de-Codigos/blob/master/regex.md)
 
 ## O quê
  - Compilação de códigos para processamento de diversos tipos de arquivos (videos, zip, áudios, imagens, textos)
