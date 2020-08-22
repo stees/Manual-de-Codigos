@@ -10,3 +10,6 @@
  - repete se falhar (/z)
  - copia se tiver mudado (/it)
  - copia se não tiver mudado (/is)
+ 
+ ## definir a última pasta na ordem alfabética na variável "lastdir"
+`for /F "tokens=*" %%a in ('dir /ad/b/od "C:\Users\caminho\pasta"') do set lastdir=%%a`
