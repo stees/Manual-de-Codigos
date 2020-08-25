@@ -4,7 +4,8 @@
 [7zip - compressão de arquivos](https://github.com/stees/Manual-de-Codigos/blob/master/7zip.md) \
 [PowerShell - manipulações diversas de arquivos](https://github.com/stees/Manual-de-Codigos/blob/master/PowerShell.md) \
 [ffmpeg - manipulações de arquivos audiovisuais](https://github.com/stees/Manual-de-Codigos/blob/master/ffmpeg.md) \
-[regex - buscas por padrões em texto](https://github.com/stees/Manual-de-Codigos/blob/master/regex.md)
+[regex - buscas por padrões em texto](https://github.com/stees/Manual-de-Codigos/blob/master/regex.md)\
+[exiftool - ler e escrever metadados de fotos, vídeos, etc](https://github.com/stees/Manual-de-Codigos/blob/master/exiftool.md)
 
 ## O quê
  - Compilação de códigos para processamento de diversos tipos de arquivos (videos, zip, áudios, imagens, textos)
