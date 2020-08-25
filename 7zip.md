@@ -1,6 +1,6 @@
 # geral
 ## configurando para poder rodar 7zip de qualquer pasta do computador, não só onde tem o 7z.exe
-`setx PATH "%PATH%;C:\Program Files\7-Zip\`\
+`setx PATH "%PATH%;C:\Program Files\7-Zip\"`\
 `echo %PATH%`
 
 # compressões
