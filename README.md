@@ -1,5 +1,10 @@
 # Compilação de códigos simples de programação
 
+[Não sei por onde começar!!!](https://github.com/stees/Manual-de-Codigos/blob/master/meajuda.md) 
+
+
+
+
 [Prompt de comando - funções gerais no sistema operacional](https://github.com/stees/Manual-de-Codigos/blob/master/cmd.md) \
 [7zip - compressão de arquivos](https://github.com/stees/Manual-de-Codigos/blob/master/7zip.md) \
 [PowerShell - manipulações diversas de arquivos](https://github.com/stees/Manual-de-Codigos/blob/master/PowerShell.md) \
