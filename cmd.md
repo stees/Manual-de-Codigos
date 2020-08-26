@@ -2,6 +2,9 @@
 `chcp 65001`
  - extremamente útil para qualquer pessoa que não é dos EUA
 
+## trocar para uma pasta
+`cd "C:\caminho\da\pasta"`
+
 ## lista de arquivos na pasta
 `dir /s /b *.mp4 >listmp4.txt`
 
