@@ -10,3 +10,7 @@
  - letras -> `([a-z])`
  
  - exemplo: achar sequências do tipo 3 letras e 4 números (e.g. ABC1234) -> `([a-z]){3}(\d){4}`
+ 
+## substituir linhas repetidas
+ - buscar por: `^(.*)(\r?\n\1)+$`
+ - substituir por `$1`
