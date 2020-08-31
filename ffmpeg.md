@@ -40,6 +40,12 @@
 ## corta 100 do width (largura) do video
 `ffmpeg -i "in.mp4" -filter:v "crop=in_w-100:in_h" -c:a copy "out.mp4"`
 
+## inserir image.png entre 0 e 20 segundos, 25 pixels para baixo e para a direita do canto superior esquerdo
+`ffmpeg -i input.mp4 -i image.png \` \
+`-filter_complex "[0:v][1:v] overlay=25:25:enable='between(t,0,20)'" \` \
+`-pix_fmt yuv420p -c:a copy \` \
+`output.mp4`
+
 # áudios
 ## transformar em mp3 sem video (vn) e mesmo codec de audio (acodec copy)
 `ffmpeg -i input.mp4 -vn -c:a libmp3lame -write_xing 0 output.mp3`
