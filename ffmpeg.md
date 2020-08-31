@@ -1,6 +1,6 @@
 # geral
-## roda o código depois de ffmpeg para todos os arquivos de tipo mp4 na pasta (%% por ser arquivo .bat)
-`for %%i in (*.mp4 *.mkv) do ffmpeg -i "%%i" -vn -c:a libmp3lame -write_xing 0 "%%~ni.mp3"`
+## roda o código depois para todos os arquivos de tipo mp4 na pasta
+`for %%i in (*.mp4 *.mkv) do ffmpeg -i "%%i" -vn -c:a libmp3lame -write_xing 0 "%%~ni.mp3"` (%%, duplo por ser arquivo .bat)
 
 ## juntar arquivos diferentes num mesmo video
 `ffmpeg -i opening.mkv -i episode.mkv -i ending.mkv -filter_complex "[0:v] [0:a] [1:v] [1:a] [2:v] [2:a] concat=n=3:v=1:a=1 [v] [a]" -map "[v]" -map "[a]" output.mkv`
