@@ -2,8 +2,14 @@
 ## roda o código depois para todos os arquivos de tipo mp4 na pasta
 `for %%i in (*.mp4 *.mkv) do ffmpeg -i "%%i" -vn -c:a libmp3lame -write_xing 0 "%%~ni.mp3"` (%%, duplo por ser arquivo .bat)
 
-## juntar arquivos diferentes num mesmo video
+## juntar arquivos diferentes num mesmo video (direto)
 `ffmpeg -i opening.mkv -i episode.mkv -i ending.mkv -filter_complex "[0:v] [0:a] [1:v] [1:a] [2:v] [2:a] concat=n=3:v=1:a=1 [v] [a]" -map "[v]" -map "[a]" output.mkv`
+
+## juntar arquivos diferentes num mesmo video (usando arquivo separado)
+`ffmpeg -f concat -safe 0 -i lista.txt -c:a copy output.mp4`
+
+formato do arquivo `lista.txt`:
+`file 'file:C:/caminho/para/o/arquivo/video.mp4'`
 
 ## aplicando dois comandos no mesmo filtro
 `ffmpeg -i "input.mp4" -filter:v "scale=-1:480, fps=fps=30" "output.mp4"`
