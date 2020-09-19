@@ -8,8 +8,10 @@
 ## juntar arquivos diferentes num mesmo video (usando arquivo separado)
 `ffmpeg -f concat -safe 0 -i lista.txt -c:a copy output.mp4`
 
-formato do arquivo `lista.txt`:
-`file 'file:C:/caminho/para/o/arquivo/video.mp4'`
+formato do arquivo `lista.txt`:\
+`file 'file:C:/caminho/para/o/arquivo/video.mp4'`\
+`file 'file:C:/caminho/para/o/arquivo/video2.mp4'`\
+`file 'file:C:/caminho/para/o/arquivo/video3.mp4'`
 
 ## aplicando dois comandos no mesmo filtro
 `ffmpeg -i "input.mp4" -filter:v "scale=-1:480, fps=fps=30" "output.mp4"`
