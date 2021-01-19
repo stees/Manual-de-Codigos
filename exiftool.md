@@ -13,3 +13,7 @@
   `-T`\
   `-r`\
   `C:\caminho\pasta\fotos\`
+
+## inserindo coordenadas de GPS em todas as fotos de uma pasta
+- inserindo latitude e longitude em decimal, valores de 42.5,42.5 (= 42°30'00''N, 42°30'00''E)\
+`exiftool -exif:gpslatitude=42.5 -exif:gpslongitude=42.5 "arquivo.jpg"`
