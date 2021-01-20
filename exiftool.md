@@ -4,9 +4,14 @@
   `exiftool -charset filename=UTF8 -@ "C:\caminho\list.txt" > out.txt`
   
  - criar arquivo `list.args` com os argumentos:\
+
   `-charset`\
   `filename=UTF8`\
-  `-filename`\
+  `-filepath`\
+  `-s3`\
+  `-ext`\
+  `jpg`\
+  `-r`\
   `-gpslatitude`\
   `-gpslongitude`\
   `-n`\
