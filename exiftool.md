@@ -52,3 +52,7 @@
    `.`
   - feito isso, basta rodar o exiftool no CMD no mesmo local onde tá o `gps.args`:\
   `exiftool -@ gps.args`
+
+## inserindo data que foto foi tirada
+ - no caso do dia 23 de outubro de 2005 às 20:06:34, não precisando estar completo
+ `exiftool -xmp:dateTimeOriginal="2005:10:23 20:06:34.33-05:00" "C:\caminho\para o\arquivo.jpg"`
