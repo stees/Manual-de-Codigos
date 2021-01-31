@@ -3,7 +3,7 @@
   `chcp 65001`\
   `exiftool -charset filename=UTF8 -@ "C:\caminho\list.args" > out.txt`
   
- - criar arquivo `list.args` com os argumentos:\
+ - criar arquivo `list.args` com os argumentos:
 
   `-charset`\
   `filename=UTF8`\
