@@ -60,6 +60,9 @@ formato do arquivo `lista.txt`:\
 
 `ffmpeg -i input.mp4 -vn -acodec copy output.aac`
 
+## baixar áudio direto do YouTube
+`youtube-dl URL -x --audio-format "mp3"`
+
 ## convertendo pra mp3
 ### ogg -> mp3
 `ffmpeg -i input.ogg -acodec libmp3lame output.mp3`
