@@ -29,4 +29,4 @@
 `youtube-dl -i -o "%(title)s -- %(id)s -- %(upload_date)s -- %(duration)s" --get-filename --skip-download URL_CANAL1 URL_CANAL2 > "%Caminho%\log.txt"`
 
 ### convertendo arquivo resultante para UTF8
-`powershell -command "Get-Content %Caminho%\log.txt" > "%Caminho%\log-utf8.txt"`
+`powershell -command "Get-Content '%Caminho%\log.txt'" > "%Caminho%\log-utf8.txt"`
