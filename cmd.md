@@ -20,7 +20,8 @@
  ## definir a última pasta na ordem alfabética na variável "lastdir"
 `for /F "tokens=*" %%a in ('dir /ad/b/od "C:\Users\caminho\pasta"') do set lastdir=%%a`
 
-## gerar uma lista dos vídeos de canal/canais ou playlist/playlists no YouTube (`URL_CANAL1` e `URL_CANAL2`)
+## gerar uma lista dos vídeos de canal/canais ou playlist/playlists no YouTube
+ - `URL_CANAL1` e `URL_CANAL2` são onde insere o link do canal ou playlist, pode ter infinitamente mais, basta separar por espaço simples cada link
  - para funcionar, no caso de canais, tem que ser o link da lista de videos, tipo: `https://www.youtube.com/user/usuario/videos`
  - o separador que usei foi o `--` pois `|` e `/` parecia dar problema
 
