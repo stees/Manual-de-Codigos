@@ -1,4 +1,4 @@
-# Compilação de códigos de programação
+# Compilação de códigos simples de programação
 
 [Não sei por onde começar!!!](https://github.com/stees/Manual-de-Codigos/blob/master/meajuda.md) 
 
