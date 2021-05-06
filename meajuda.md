@@ -6,7 +6,7 @@ Este aqui é um guia rápido para usar linguagens de programação para funçõe
 Programar nada mais é do que deixar instruções pra máquina fazer coisas pra você. Isso é especialmente útil quando você tem alguma **tarefa repetitiva ou muito extensa**.
 \
 \
-Os programas documentados aqui são, em boa parte, usados através do "prompt de comando" do Windows, que nada mais é do que um local em que você pode ter contato mais próximo com a máquina para fazer operações e fornecer instruções para ela executar diretamente.
+Os programas documentados aqui são, em boa parte, usados através do "prompt de comando" (no Windows, basta buscar "prompt de comando" no botão de busca do Iniciar), que nada mais é do que um local em que você pode ter contato mais próximo com a máquina para fazer operações e fornecer instruções para ela executar diretamente.
 
 ### Exemplo de utilidade 1 - prompt de comando
 Dos programinhas documentados aqui, o prompt de comando é o que mais aparece, já que vários são usados através dele, exceto o PowerShell e o regex. O prompt de comando, além de permitir usar outros programas, tem funções próprias como, por exemplo, copiar certos tipos de arquivos ou produzir listas de arquivos de uma pasta, etc - isso inclusive permite criar rotinas prontas pro computador executar!
