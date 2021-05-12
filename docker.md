@@ -24,6 +24,5 @@
  - Fontes:
    - https://hub.docker.com/r/jupyter/scipy-notebook
    - https://github.com/jupyter/docker-stacks
- 
- - Instalando: `docker pull jupyter/scipy-notebook`
+
  - Rodando: `docker run -p 8888:8888 jupyter/scipy-notebook:latest`
