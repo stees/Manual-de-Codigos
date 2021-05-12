@@ -14,10 +14,15 @@
 ### PostGIS
  - Fonte: https://www.alexurquhart.com/post/set-up-postgis-with-docker/
 
+ - Instalando
+
     `docker volume create pg_data`\
     `docker run --name=postgis -d -e POSTGRES_USER=user -e POSTGRES_PASS=password -e POSTGRES_DBNAME=gis -e ALLOW_IP_RANGE=0.0.0.0/0 -p 5432:5432 -v pg_data:/var/lib/postgresql --restart=always kartoza/postgis:13`
     
 ### Jupyter Notebook
- - Fonte: https://hub.docker.com/r/jupyter/scipy-notebook
+ - Fontes:
+   - https://hub.docker.com/r/jupyter/scipy-notebook
+   - https://github.com/jupyter/docker-stacks
  
-    `docker pull jupyter/scipy-notebook`
+ - Instalando: `docker pull jupyter/scipy-notebook`
+ - Rodando: `docker run -p 8891:8891 jupyter/scipy-notebook:latest`
