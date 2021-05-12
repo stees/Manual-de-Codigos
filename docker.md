@@ -9,6 +9,7 @@
     `wsl --export docker-desktop-data "D:\Docker\wsl\data\docker-desktop-data.tar"`\
     `wsl --unregister docker-desktop-data`\
     `wsl --import docker-desktop-data "D:\Docker\wsl\data" "D:\Docker\wsl\data\docker-desktop-data.tar" --version 2`
+    `del "D:\Docker\wsl\data\docker-desktop-data.tar"`
 
 ## Containers
 ### PostGIS
