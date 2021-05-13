@@ -76,10 +76,12 @@
     ```
     
 ### Jupyter Notebook
- - Fontes:
+ - Fontes: 
    - https://hub.docker.com/r/jupyter/scipy-notebook
    - https://github.com/jupyter/docker-stacks
 
- - Rodando
+ - Rodando no diretório `G:\`
 
-   ```docker run -p 8888:8888 jupyter/scipy-notebook:latest```
+   ```
+   docker run -p 8888:8888 -v "G:/":/home/jovyan/work jupyter/scipy-notebook
+   ```
