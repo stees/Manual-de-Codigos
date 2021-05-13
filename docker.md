@@ -23,6 +23,15 @@
     memory=1GB
     ```
 
+## Operações gerais
+### Copiando arquivo de/para container
+ - Fonte: https://jtemporal.com/copying-files-into-a-container/
+ - Arquivo `dados.csv` para a pasta `/home/jovyan/work/` dentro do container `relaxed_hypatia`
+
+    ```
+    docker cp dados.csv relaxed_hypatia:/home/jovyan/work/dados.csv
+    ```
+
 ## Containers
 ### PostGIS
  - Fonte: https://www.alexurquhart.com/post/set-up-postgis-with-docker/
