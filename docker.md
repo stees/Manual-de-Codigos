@@ -1,5 +1,15 @@
-# Docker Windows
+- [Docker Windows](#docker-windows)
+  - [Configurações gerais](#configurações-gerais)
+    - [Mudando o drive do Docker logo depois de instalar](#mudando-o-drive-do-docker-logo-depois-de-instalar)
+    - [Reduzindo uso de memória do processo `vmmem`](#reduzindo-uso-de-memória-do-processo-vmmem)
+  - [Operações gerais](#operações-gerais)
+    - [Copiando arquivo de/para container](#copiando-arquivo-depara-container)
+    - [Instalando bibliotecas novas em imagem puxada pronta do Dockerhub sem editar o Dockerfile](#instalando-bibliotecas-novas-em-imagem-puxada-pronta-do-dockerhub-sem-editar-o-dockerfile)
+  - [Containers](#containers)
+    - [PostGIS](#postgis)
+    - [Jupyter Notebook](#jupyter-notebook)
 
+# Docker Windows
 ## Configurações gerais
 ### Mudando o drive do Docker logo depois de instalar
  - Fonte: https://stackoverflow.com/a/63752264
@@ -30,6 +40,28 @@
 
     ```
     docker cp dados.csv relaxed_hypatia:/home/jovyan/work/dados.csv
+    ```
+
+### Instalando bibliotecas novas em imagem puxada pronta do Dockerhub sem editar o Dockerfile
+ - Fonte: https://bobcares.com/blog/edit-docker-image/ (2. Create a modified image)
+
+ - Com o container rodando, pega nome e roda:
+    ```
+    docker exec -it container-name bash
+    ```
+
+ - Instalar bibliotecas que estão faltando (no caso abaixo, geopandas com suas [dependências](https://geopandas.org/getting_started/install.html) e alguns outros)
+    ```
+    conda install pandas fiona shapely pyproj rtree
+    pip install geopandas
+    pip install psycopg2
+    pip install GeoAlchemy2
+    ```
+
+ - Sair do bash e salvar mudanças no container, depois de pegar seu ID por `docker container ls`
+    ```
+    exit
+    docker commit container-ID image-name
     ```
 
 ## Containers
