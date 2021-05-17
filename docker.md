@@ -75,6 +75,11 @@
     docker run --name=postgis -d -e POSTGRES_USER=user -e POSTGRES_PASS=password -e POSTGRES_DBNAME=gis -e ALLOW_IP_RANGE=0.0.0.0/0 -p 5432:5432 -v pg_data:/var/lib/postgresql --restart=always kartoza/postgis:13
     ```
     
+ - Adicionando extensão SFCGAL no QGIS > DB Manager > SQL Window com a base acima já conectada
+    ```
+    CREATE EXTENSION postgis_sfcgal;
+    ```
+
 ### Jupyter Notebook
  - Fontes: 
    - https://hub.docker.com/r/jupyter/scipy-notebook
