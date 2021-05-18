@@ -87,7 +87,16 @@
    - https://github.com/jupyter/docker-stacks
 
  - Rodando no diretório `G:\`
-
    ```
    docker run -p 8888:8888 -v "G:/":/home/jovyan/work jupyter/scipy-notebook
    ```
+   
+### R
+ - Fonte:
+  - https://hub.docker.com/r/jupyter/r-notebook
+
+   ```
+   docker run --rm -p 8787:8787 -v "G:/":/home/rstudio/stees jupyter/r-notebook
+   ```
+   
+  - Usuário e senha padrões: rstudio e rstudio
