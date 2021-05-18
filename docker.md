@@ -96,7 +96,7 @@
   - https://hub.docker.com/r/jupyter/r-notebook
 
    ```
-   docker run --rm -p 8787:8787 -v "G:/":/home/rstudio/stees jupyter/r-notebook
+   docker run --rm -p 8787:8787 -v "G:/":/home/rstudio/pasta jupyter/r-notebook
    ```
    
   - Usuário e senha padrões: rstudio e rstudio
