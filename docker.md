@@ -93,10 +93,8 @@
    
 ### R
  - Fonte:
-  - https://hub.docker.com/r/jupyter/r-notebook
+  - https://hub.docker.com/r/rocker/rstudio
 
    ```
-   docker run --rm -p 8787:8787 -v "G:/":/home/rstudio/pasta jupyter/r-notebook
+   docker run --rm -p 8787:8787 -e PASSWORD=yourpasswordhere rocker/rstudio
    ```
-   
-  - Usuário e senha padrões: rstudio e rstudio
