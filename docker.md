@@ -50,12 +50,13 @@
     docker exec -it container-name bash
     ```
 
- - Instalar bibliotecas que estão faltando (no caso abaixo, geopandas com suas [dependências](https://geopandas.org/getting_started/install.html) e alguns outros)
+ - Instalar bibliotecas que estão faltando (no caso abaixo, geopandas e [dependências](https://geopandas.org/getting_started/install.html) dentro do `scipy-notebook`)
     ```
     conda install pandas fiona shapely pyproj rtree
     pip install geopandas
     pip install psycopg2
     pip install GeoAlchemy2
+    pip install openpyxl
     ```
 
  - Sair do bash e salvar mudanças no container, depois de pegar seu ID por `docker container ls`
