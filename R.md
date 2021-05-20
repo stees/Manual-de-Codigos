@@ -90,11 +90,11 @@
 
    - loop por matriz
      ```
-     for (rows in 1:nrow(thismatrix)) {
-      for (columns in 1:ncol(thismatrix)) {
-        print(thismatrix[rows, columns])
+      for (rows in 1:nrow(thismatrix)) {
+        for (columns in 1:ncol(thismatrix)) {
+          print(thismatrix[rows, columns])
+        }
       }
-    }
      ```
-     
+
    - 
