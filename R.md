@@ -46,7 +46,6 @@
            return( 5 * x )
 
        }
-
        ```
    - atribuindo variável localmente: 
      - ` var = "test" `
