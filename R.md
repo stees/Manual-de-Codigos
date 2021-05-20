@@ -56,8 +56,10 @@
 
        }
        ```
+
    - atribuindo variável localmente
      - ` var = "test" `
+
    - atribuindo variável global dentro de função
      - ` var <<- "test" `
 
