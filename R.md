@@ -64,7 +64,7 @@
      - ` var <<- "test" `
 
  - estruturas de dados - vetores/listas/matrizes:
-   - vetores e listas
+   - criando vetores e listas
      - `numbers <- c(1, 2, 3)` ou ` numbers <- 1:3`, se usar com decimais, ele pula de 1 em 1
      - `numbers <- seq( from = 0, to = 100, by = 20 ) `, para pular diferente
      - `rep( numbers , each = 3 )`, repete cada elemento 3x
@@ -77,7 +77,7 @@
    - classificar
      - `sort(numbers)`
 
-   - matrizes
+   - criando matrizes
      - `matrix( c(1,2,3,4,5,6) , nrow = 3, ncol = 2)`, 123 viram a primeira coluna, 456 a segunda
      - `cbind( thismatrix , c("strawberry", "blueberry", "raspberry") )`, adicionando coluna, para linha é `rbind`, serve para adicionar matrizes inteiras também
      - `thismatrix[ -c(1) , -c(1) ]`, remove primeira linha e primeira coluna
@@ -99,4 +99,10 @@
       }
      ```
 
-   - 
+   - estruturas de dados - arrays:
+     - criando
+       - `thisarray <- c(1:24)` array de 1 dimensão, valores 1 até 24
+       - `multiarray <- array( thisarray, c(4,3,2) )` array de 2 dimensões, pegando valores do de cima e gerando matrizes de 4 linhas e 3 colunas
+
+     - acessando
+       - `dim(multiarray)` linhas, colunas e dimensões
