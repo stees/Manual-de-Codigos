@@ -1,3 +1,10 @@
+- [fontes](#fontes)
+- [geral](#geral)
+
+# fontes
+ - [W3Schools](https://www.w3schools.com/r/)
+ - [Tutorials Point](https://www.tutorialspoint.com/r/)
+
 # geral
  - variável:
    - atribuindo globalmente: 
@@ -13,6 +20,9 @@
    - concatenar:
      - `paste( string1 , string2 , sep=" " , collapse=NULL )`
      - sep = entre termos, collapse = entre resultados
+
+   - extrair pedaços:
+     - `substr( var , start = 1 , stop = 2 )`
 
    - preservar quebra de linha na atribuição da variável:
      - `cat( var )`
@@ -106,3 +116,7 @@
 
      - acessando
        - `dim(multiarray)` linhas, colunas e dimensões
+
+   - estruturas de dados - data frame:
+     - lendo CSV
+       - `read.csv( "./arquivo.txt" , header = TRUE )`
