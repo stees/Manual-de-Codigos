@@ -6,8 +6,9 @@
  - adicionar `{x}` depois do que se quer ver repetir, x = número de repetições
 
 ## achar números e letras
- - números -> `(\d)`
+ - dígitos -> `(\d)`
  - letras minúsculas e maiúsculas -> `([a-z])` e `([A-Z])`
+ - qualquer letra minúscula ou maiúscula, com ou sem acento -> `[A-zÀ-ú]`
  - combinando letras minúsculas, maiúsculas e espaços -> `([a-zA-Z ]+)`
  - caracteres chineses/japoneses: Han -> `([\u3402-\uFA6D]+)`
  - caracteres japoneses: Hiragana -> `([\u3041-\u30A0\u30A0-\u31FF]+)`
