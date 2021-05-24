@@ -1,7 +1,7 @@
 - [fontes](#fontes)
 - [geral](#geral)
   - [variável](#variável)
-    - [atribuindo globalmente:](#atribuindo-globalmente)
+    - [atribuindo globalmente](#atribuindo-globalmente)
     - [tipo - checar](#tipo---checar)
     - [tipo - converter](#tipo---converter)
   - [texto (string)](#texto-string)
@@ -43,7 +43,7 @@
 
 # geral
 ## variável
-### atribuindo globalmente: 
+### atribuindo globalmente
    - `var <- "text"` ou `var <- 5`
 
 ### tipo - checar
