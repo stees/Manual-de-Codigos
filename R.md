@@ -127,11 +127,13 @@
    - `read.csv2( "./arquivo.txt" , header = TRUE )`, para o caso de CSV com separador decimal `,` e separador de colunas `;` (Brasil)
    - `fread("data.csv.gz")`, lê CSV comprimido em GZ usando `library(data.table)` e pacote R.utils
 
- - adicionando coluna (`library(dplyr)`) usando alguma fórmula
-   - `df %>% mutate( fórmula )`
-
- - chamando uma coluna
-   - `df$coluna1`, coluna1 do dataframe `df`
+ - coluna
+   - `df %>% mutate( fórmula )`, adicionando coluna (`library(dplyr)`) usando alguma fórmula
+   - `df$coluna1`, chamando coluna1 do dataframe `df`
+   - `mean(df$coluna1)`, valor médio de coluna1
+   - `max(df$coluna1)`, valor máximo de coluna1
+   - `which.max(df$coluna1)`, qual linha contém o valor máximo de coluna1
+   - `rownames(df)[which.max(df$coluna1)]`, nome da linha que contém o valor máximo de coluna1
 
  - juntando dois DataFrames
    - `New_Data_Frame <- rbind(Data_Frame1, Data_Frame2)`, verticalmente
@@ -139,3 +141,12 @@
 
  - funções úteis
    - `df$DATAHORA = as.POSIXct( df$DATAHORA , format="%m-%d-%Y %H:%M:%S" , tz="GMT" )`, transforma em `datetime` o texto da coluna `DATAHORA` do dataframe `df`, que tá em formato `mm-dd-yyyy hh:mm:ss`
+
+   - tabela dinâmica de `df`, nas linhas coluna1, nos valores a média da coluna2 removendo os NA indo para coluna "media"
+      ```
+      df %>%
+        group_by( coluna1 ) %>%
+        summarize( media = mean( coluna2 , na.rm = TRUE) )
+      ```
+
+   - 
