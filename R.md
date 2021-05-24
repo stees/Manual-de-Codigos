@@ -119,8 +119,8 @@
    - `dim(multiarray)` linhas, colunas e dimensões
 
 ## estruturas de dados - data frame:
- - criando dataframe vazio só com colunas e tipos
-   - `Fruit_Market <- data.frame( fruit=character(0) , cost=numeric(0) , quantity=integer(0) )`
+ - atribuindo nomes de colunas para dataframe já existente
+   - `colnames( df ) <- c( "col1","col2","col3" )`
 
  - lendo
    - `read.csv( "./arquivo.txt" , header = TRUE )`, lê CSV normal
@@ -130,9 +130,12 @@
  - adicionando coluna (`library(dplyr)`) usando alguma fórmula
    - `df %>% mutate( fórmula )`
 
+ - chamando uma coluna
+   - `df$coluna1`, coluna1 do dataframe `df`
+
  - juntando dois DataFrames
    - `New_Data_Frame <- rbind(Data_Frame1, Data_Frame2)`, verticalmente
    - `New_Data_Frame <- cbind(Data_Frame1, Data_Frame2)`, horizontalmente
 
  - funções úteis
-   - `DATAHORA = as.POSIXct( DATAHORA , format="%m-%d-%Y %H:%M:%S" , tz="GMT" )`, transforma em `datetime` o texto da coluna DATAHORA, que tá em formato `mm-dd-yyyy hh:mm:ss`
+   - `df$DATAHORA = as.POSIXct( df$DATAHORA , format="%m-%d-%Y %H:%M:%S" , tz="GMT" )`, transforma em `datetime` o texto da coluna `DATAHORA` do dataframe `df`, que tá em formato `mm-dd-yyyy hh:mm:ss`
