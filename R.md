@@ -121,6 +121,7 @@
 ## estruturas de dados - data frame:
  - lendo
    - `read.csv( "./arquivo.txt" , header = TRUE )`, lê CSV normal
+   - `read.csv2( "./arquivo.txt" , header = TRUE )`, para o caso de CSV com separador decimal `,` e separador de colunas `;` (Brasil)
    - `fread("data.csv.gz")`, lê CSV comprimido em GZ usando `library(data.table)` e pacote R.utils
 
  - adicionando coluna (`library(dplyr)`) usando alguma fórmula
