@@ -94,14 +94,14 @@
 
 ## funções
 ### criando
-    ```
+
     myfunction <- function( var1, x ){
 
         paste( var1 , "test" )
         return( 5 * x )
 
     }
-    ```
+
 
 ### atribuindo variável localmente
  - ` var = "test" `
@@ -138,13 +138,11 @@
  - `thismatrix[ c(1,2) , ]` matriz - primeira e segunda linhas
 
 ### loop por matriz
-     ```
       for (rows in 1:nrow(thismatrix)) {
         for (columns in 1:ncol(thismatrix)) {
           print(thismatrix[rows, columns])
         }
       }
-     ```
 
 ## estruturas de dados - arrays
 ### criando
@@ -164,20 +162,31 @@
  - `fread("data.csv.gz")`, lê CSV comprimido em GZ usando `library(data.table)` e pacote R.utils
 
 ### coluna
- - 
- - `df %>% mutate( fórmula )`, adicionando coluna (`library(dplyr)`) usando alguma fórmula
+ - `df$coluna <- fórmula `, adicionando coluna usando alguma fórmula
+
+ - adicionando coluna com várias condições
+    ```
+    df$HORARIO <- case_when(
+                            ( hour(df$DATAHORA) %/% 6 ) == 0 ~ "0 - Madrugada",
+                            ( hour(df$DATAHORA) %/% 6 ) == 1 ~ "1 - Manhã",
+                            ( hour(df$DATAHORA) %/% 6 ) == 2 ~ "2 - Tarde",
+                            ( hour(df$DATAHORA) %/% 6 ) == 3 ~ "3 - Noite",
+                          )
+    ```
+
  - `df$coluna1`, chamando coluna1 do dataframe `df`
  - `mean(df$coluna1)`, valor médio de coluna1
  - `max(df$coluna1)`, valor máximo de coluna1
  - `which.max(df$coluna1)`, qual linha contém o valor máximo de coluna1
  - `rownames(df)[which.max(df$coluna1)]`, nome da linha que contém o valor máximo de coluna1
 
+
 ### juntando dois DataFrames
  - `New_Data_Frame <- rbind(Data_Frame1, Data_Frame2)`, verticalmente
  - `New_Data_Frame <- cbind(Data_Frame1, Data_Frame2)`, horizontalmente
 
 ### funções úteis
- - `df$DATAHORA = as.POSIXct( df$DATAHORA , format="%m-%d-%Y %H:%M:%S" , tz="GMT" )`, transforma em `datetime` o texto da coluna `DATAHORA` do dataframe `df`, que tá em formato `mm-dd-yyyy hh:mm:ss`
+ - `df$DATAHORA <- as.POSIXct( df$DATAHORA , format="%m-%d-%Y %H:%M:%S" , tz="GMT" )`, transforma em `datetime` o texto da coluna `DATAHORA` do dataframe `df`, que tá em formato `mm-dd-yyyy hh:mm:ss`
 
  - tabela dinâmica de `df`, nas linhas coluna1, nos valores a média da coluna2 removendo os NA indo para coluna "media", [fonte](https://rstudio-conf-2020.github.io/r-for-excel/pivot-tables.html#group_by-summarize)
       ```
