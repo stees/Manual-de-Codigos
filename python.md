@@ -53,6 +53,11 @@
                                 )
     ```
 
+### criando colunas usando VLOOKUP, sem jogar fora quando não encontra
+    ```
+    df1.merge(df_busca, how='left', on='ID')
+    ```
+
 ## gerando relatórios
 ### agrupando por certas colunas
     ```
