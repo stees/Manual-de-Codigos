@@ -1,5 +1,6 @@
 - [pandas](#pandas)
   - [geral](#geral)
+  - [visualização](#visualização)
   - [processando colunas](#processando-colunas)
   - [gerando relatórios](#gerando-relatórios)
 
@@ -23,6 +24,10 @@
                 
                 inplace=True 
              )
+
+## visualização
+### ordenando colunas
+    df.sort_values(by=['col1'])
 
 ## processando colunas
 ### n primeiros caracteres
@@ -64,9 +69,21 @@
 
     dftemp1 = df.groupby( colunas_agregar ).agg( agrega ).reset_index()
 
-### agrupando valores
+### classificando valores
 #### por contagem igual (em 10 grupos)
     df['quantil'] = pd.qcut(df['coluna a agrupar'],q=10)
 
 #### por intervalo igual (em 4 grupos)
-    df['intervalo igual'] = pd.cut(df['coluna a agregar'], bins=4)      
+    df['intervalo igual'] = pd.cut(df['coluna a agregar'], bins=4)
+
+### mapa de calor
+#### 
+    bin_labels_coluna1 = list(range(1, 11))
+    bin_labels_coluna2 = bin_labels_coluna1.copy()
+
+    df['quantil_coluna1'] = pd.qcut( df['coluna1'] , q=10 , labels=bin_labels_coluna1 )
+    df['quantil_coluna2'] = pd.cut( df['coluna2'], bins=10, labels=bin_labels_coluna2)
+
+    colunas_agregar = [ "quantil_coluna1" , "quantil_coluna2" ]
+    agrega = {"parâmetro para somar":'sum'}
+    agregado = df.groupby( colunas_agregar ).agg( agrega ).reset_index()
