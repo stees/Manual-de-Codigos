@@ -1,3 +1,8 @@
+- [pandas](#pandas)
+  - [geral](#geral)
+  - [processando colunas](#processando-colunas)
+  - [gerando relatórios](#gerando-relatórios)
+
 # pandas
 ## geral
 ### ler CSV (comprimido gzip)
@@ -53,16 +58,15 @@
 
 ## gerando relatórios
 ### agrupando por certas colunas
-    ```
     colunas_agregar = [ "província" ]
 
     agrega = {"área construída":'mean'}
 
     dftemp1 = df.groupby( colunas_agregar ).agg( agrega ).reset_index()
-    ```
 
+### agrupando valores
+#### por contagem igual (em 10 grupos)
+    df['quantil'] = pd.qcut(df['coluna a agrupar'],q=10)
 
-
-    ```
-
-    ```            
+#### por intervalo igual (em 4 grupos)
+    df['intervalo igual'] = pd.cut(df['coluna a agregar'], bins=4)      
