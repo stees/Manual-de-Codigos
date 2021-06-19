@@ -20,6 +20,9 @@
                     )
     ```
 
+### salvar em CSV (comprimido gzip)
+    df.to_csv('./pasta/' + 'nome arquivo' + '.csv.gz')
+
 ### renomeando colunas de dataframe já existente
     df.rename( columns={\
                         "AREA CONSTRUIDA_x": "área apto",\
