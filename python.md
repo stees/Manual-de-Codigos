@@ -3,12 +3,16 @@
   - [visualização](#visualização)
   - [processando colunas](#processando-colunas)
   - [gerando relatórios](#gerando-relatórios)
+- [gráficos](#gráficos)
+  - [geral](#geral-1)
 
 # pandas
 ## geral
 ### ler CSV (comprimido gzip)
  - arquivo `file`, separador `;` e decimal `,`, usando colunas da lista `colunas`
     ```
+    file = "./arquivo.csv"
+
     df = pd.read_csv( file,\
                       sep=';',\
                       error_bad_lines=False,encoding='latin1',compression='gzip',warn_bad_lines=True,keep_default_na=False,\
@@ -76,8 +80,26 @@
 #### por intervalo igual (em 4 grupos)
     df['intervalo igual'] = pd.cut(df['coluna a agregar'], bins=4)
 
+# gráficos
+## geral
+### configurações preliminares
+ - chamando matplotlib
+    ```
+    import matplotlib.pyplot as plt
+    ```
+
+ - colocando fundo branco
+    ```
+    plt.rcParams['axes.facecolor']='white'
+    plt.rcParams['savefig.facecolor']='white'
+    ```
+
+ - fixando tamanho
+    ```
+    fig, ax = plt.subplots(figsize=(10,8))
+    ```
+
 ### mapa de calor
-#### 
     bin_labels_coluna1 = list(range(1, 11))
     bin_labels_coluna2 = bin_labels_coluna1.copy()
 
@@ -87,3 +109,17 @@
     colunas_agregar = [ "quantil_coluna1" , "quantil_coluna2" ]
     agrega = {"parâmetro para somar":'sum'}
     agregado = df.groupby( colunas_agregar ).agg( agrega ).reset_index()
+
+    ax = sns.heatmap(agregado,square=True,annot=True,fmt="d")
+
+### criando gráfico
+
+
+### salvando
+    plt.savefig('gráfico.png',transparent=False)
+
+
+
+    ```
+
+    ```
