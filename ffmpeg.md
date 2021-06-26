@@ -1,3 +1,46 @@
+- [como começar](#como-começar)
+  - [baixando o ffmpeg](#baixando-o-ffmpeg)
+  - [rodando o ffmpeg](#rodando-o-ffmpeg)
+- [geral](#geral)
+  - [roda o código depois para todos os arquivos de tipo mp4 na pasta](#roda-o-código-depois-para-todos-os-arquivos-de-tipo-mp4-na-pasta)
+  - [juntar arquivos diferentes num mesmo video (direto)](#juntar-arquivos-diferentes-num-mesmo-video-direto)
+  - [juntar arquivos diferentes num mesmo video (usando arquivo separado)](#juntar-arquivos-diferentes-num-mesmo-video-usando-arquivo-separado)
+  - [aplicando dois comandos no mesmo filtro](#aplicando-dois-comandos-no-mesmo-filtro)
+  - [picotando arquivo](#picotando-arquivo)
+  - [escrever saídas no prompt de comando para um arquivo de texto](#escrever-saídas-no-prompt-de-comando-para-um-arquivo-de-texto)
+- [videos](#videos)
+  - [diminuir tamanho sem diminuir qualidade](#diminuir-tamanho-sem-diminuir-qualidade)
+  - [mudar resolução mantendo aspect ratio](#mudar-resolução-mantendo-aspect-ratio)
+  - [converte mkv pra mp4](#converte-mkv-pra-mp4)
+  - [extrai todos os frames (-r = ffps, -t duração, -ss início, nome frame_1-1_0001, 0002, etc)](#extrai-todos-os-frames--r--ffps--t-duração--ss-início-nome-frame_1-1_0001-0002-etc)
+  - [gira 90 graus anti-horário e mantém os outros metadados](#gira-90-graus-anti-horário-e-mantém-os-outros-metadados)
+  - [corta 100 do width (largura) do video](#corta-100-do-width-largura-do-video)
+  - [inserir image.png entre 0 e 20 segundos, 25 pixels para baixo e para a direita do canto superior esquerdo](#inserir-imagepng-entre-0-e-20-segundos-25-pixels-para-baixo-e-para-a-direita-do-canto-superior-esquerdo)
+- [áudios](#áudios)
+  - [transformar em mp3 sem video (vn) e mesmo codec de audio (acodec copy)](#transformar-em-mp3-sem-video-vn-e-mesmo-codec-de-audio-acodec-copy)
+  - [baixar áudio direto do YouTube](#baixar-áudio-direto-do-youtube)
+  - [convertendo pra mp3](#convertendo-pra-mp3)
+  - [aumentando velocidade de audio pra 1,2x](#aumentando-velocidade-de-audio-pra-12x)
+  - [removendo silêncios do começo ao fim](#removendo-silêncios-do-começo-ao-fim)
+  - [complexos](#complexos)
+- [videos + áudios](#videos--áudios)
+  - [juntando um audio a um video](#juntando-um-audio-a-um-video)
+  - [aumentando velocidade de video e audio pra 1,2x + diminuir tamanho sem diminuir qualidade](#aumentando-velocidade-de-video-e-audio-pra-12x--diminuir-tamanho-sem-diminuir-qualidade)
+
+# como começar
+## baixando o ffmpeg
+ - baixe [este arquivo](https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full.7z) compactado e descompacte em algum lugar fixo (por exemplo, no `C:\Arquivos de programas`)
+ - o executável do ffmpeg estará na pasta `bin`, só que do jeito que tá, ele só vai conseguir rodar se os arquivos que quiser processar estiverem na mesma pasta `bin`
+ - pra não precisar disso -> Iniciar > Configurações (logo acima de Desligar) > Editar variáveis de ambiente > Variáveis de ambiente (canto inferior direito)
+ - na janela que abrir, no painel inferior "Variáveis de sistema", role até a variável "Path", clique nela e clique em "editar"
+ - na janela "editar variável de ambiente", clique em "novo" e coloque o caminho pra onde ficou a pasta `bin` do ffmpeg, por exemplo: `C:\Arquivos de programas\ffmpeg\bin`
+
+## rodando o ffmpeg
+ - depois de editar as variáveis de sistema, você pode rodar o ffmpeg em qualquer pasta
+ - para fazer isso, abra a pasta onde estão os vídeos que quer editar, e basta digitar "cmd" na barra de endereços de pasta e dar enter, que aí o prompt de comando vai rodar direto naquela pasta
+ - rode o código desejado, como os vários abaixo
+ - ATENÇÃO: aqueles que têm dois sinais de porcentagem (`%%`) devem ser trocados por apenas um (`%`) no caso de rodar direto pelo prompt
+
 # geral
 ## roda o código depois para todos os arquivos de tipo mp4 na pasta
 `for %%i in (*.mp4 *.mkv) do ffmpeg -i "%%i" -vn -c:a libmp3lame -write_xing 0 "%%~ni.mp3"` (%%, duplo por ser arquivo .bat)
@@ -29,7 +72,8 @@ formato do arquivo `lista.txt`:\
 
 # videos
 ## diminuir tamanho sem diminuir qualidade
-`ffmpeg -i input.mp4 -crf 28 output.mp4`
+ - O ideal é manter CRF entre 18 e 30, acima de 30 fica muito ruim, abaixo de 18 o arquivo fica muito grande\
+    `ffmpeg -i input.mp4 -crf 25 output.mp4`
 
 ## mudar resolução mantendo aspect ratio
 `ffmpeg -i input.mp4 -vf "scale=iw/2:ih/2" output_half.mp4`
