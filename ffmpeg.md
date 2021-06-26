@@ -73,7 +73,7 @@ formato do arquivo `lista.txt`:\
 # videos
 ## diminuir tamanho sem diminuir qualidade
  - O ideal é manter CRF entre 18 e 30, acima de 30 fica muito ruim, abaixo de 18 o arquivo fica muito grande\
-    `ffmpeg -i input.mp4 -crf 25 output.mp4`
+    `ffmpeg -i "input nome pode ter espaços.mp4" -crf 25 "output.mp4"`
 
 ## mudar resolução mantendo aspect ratio
 `ffmpeg -i input.mp4 -vf "scale=iw/2:ih/2" output_half.mp4`
