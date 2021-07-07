@@ -1,13 +1,7 @@
 - [Docker Windows](#docker-windows)
   - [Configurações gerais](#configurações-gerais)
-    - [Mudando o drive do Docker logo depois de instalar](#mudando-o-drive-do-docker-logo-depois-de-instalar)
-    - [Reduzindo uso de memória do processo `vmmem`](#reduzindo-uso-de-memória-do-processo-vmmem)
   - [Operações gerais](#operações-gerais)
-    - [Copiando arquivo de/para container](#copiando-arquivo-depara-container)
-    - [Instalando bibliotecas novas em imagem puxada pronta do Dockerhub sem editar o Dockerfile](#instalando-bibliotecas-novas-em-imagem-puxada-pronta-do-dockerhub-sem-editar-o-dockerfile)
   - [Containers](#containers)
-    - [PostGIS](#postgis)
-    - [Jupyter Notebook](#jupyter-notebook)
 
 # Docker Windows
 ## Configurações gerais
@@ -58,6 +52,12 @@
     pip install GeoAlchemy2
     pip install openpyxl
     ```
+
+ - Instalar bibliotecas faltando no `r-notebook`
+   ```
+   conda install -c r r-ggplot2
+   conda install -c conda-forge r-rgdal
+   ```
 
  - Sair do bash e salvar mudanças no container, depois de pegar seu ID por `docker container ls`
     ```
