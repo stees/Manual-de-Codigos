@@ -4,9 +4,13 @@
   - [texto (string)](#texto-string)
   - [operações (numeric)](#operações-numeric)
   - [funções](#funções)
-  - [estruturas de dados - vetores/listas/matrizes](#estruturas-de-dados---vetoreslistasmatrizes)
-  - [estruturas de dados - arrays](#estruturas-de-dados---arrays)
+- [estruturas de dados](#estruturas-de-dados)
+  - [vetores/listas/matrizes](#vetoreslistasmatrizes)
+  - [arrays](#arrays)
   - [estruturas de dados - data frame](#estruturas-de-dados---data-frame)
+- [espacialização](#espacialização)
+  - [partindo de uma tabela](#partindo-de-uma-tabela)
+  - [mostrando pontos](#mostrando-pontos)
 
 # fontes
  - [W3Schools](https://www.w3schools.com/r/)
@@ -80,7 +84,8 @@
 ### atribuindo variável global dentro de função
  - ` var <<- "test" `
 
-## estruturas de dados - vetores/listas/matrizes
+# estruturas de dados
+## vetores/listas/matrizes
 ### criando vetores e listas
  - `numbers <- c(1, 2, 3)` ou ` numbers <- 1:3`, se usar com decimais, ele pula de 1 em 1
  - `numbers <- seq( from = 0, to = 100, by = 20 ) `, para pular diferente
@@ -115,7 +120,7 @@
         }
       }
 
-## estruturas de dados - arrays
+## arrays
 ### criando
  - `thisarray <- c(1:24)` array de 1 dimensão, valores 1 até 24
  - `multiarray <- array( thisarray, c(4,3,2) )` array de 2 dimensões, pegando valores do de cima e gerando matrizes de 4 linhas e 3 colunas
@@ -166,7 +171,8 @@
         summarize( media = mean( coluna2 , na.rm = TRUE) )
       ```
 
-### Espacializando uma tabela 
+# espacialização
+## partindo de uma tabela 
  - Pegando só latlong
     ```
     xy <- df[,c(4,5)]
@@ -186,7 +192,7 @@
     spdf <- SpatialPointsDataFrame( coords = xy , data = df , proj4string = CRS("+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0") )
     ```
 
-### Mostrando pontos
+## mostrando pontos
     ggplot(as.data.frame(df),aes(x=LONGITUDE,y=LATITUDE))+
     geom_point(col="red")+
     coord_equal()
