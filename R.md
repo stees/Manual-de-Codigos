@@ -1,41 +1,12 @@
 - [fontes](#fontes)
 - [geral](#geral)
   - [variável](#variável)
-    - [atribuindo globalmente](#atribuindo-globalmente)
-    - [tipo - checar](#tipo---checar)
-    - [tipo - converter](#tipo---converter)
   - [texto (string)](#texto-string)
-    - [concatenar](#concatenar)
-    - [extrair pedaços](#extrair-pedaços)
-    - [preservar quebra de linha na atribuição da variável](#preservar-quebra-de-linha-na-atribuição-da-variável)
-    - [inserir caractere ilegal (e.g. aspas)](#inserir-caractere-ilegal-eg-aspas)
-    - [len](#len)
-    - [achar sequência "Hello"](#achar-sequência-hello)
   - [operações (numeric)](#operações-numeric)
-    - [divisão - resto](#divisão---resto)
-    - [divisão - quociente](#divisão---quociente)
-    - [lógica](#lógica)
-    - [operadores](#operadores)
   - [funções](#funções)
-    - [criando](#criando)
-    - [atribuindo variável localmente](#atribuindo-variável-localmente)
-    - [atribuindo variável global dentro de função](#atribuindo-variável-global-dentro-de-função)
   - [estruturas de dados - vetores/listas/matrizes](#estruturas-de-dados---vetoreslistasmatrizes)
-    - [criando vetores e listas](#criando-vetores-e-listas)
-    - [comprimento](#comprimento)
-    - [classificar](#classificar)
-    - [criando matrizes](#criando-matrizes)
-    - [endereços](#endereços)
-    - [loop por matriz](#loop-por-matriz)
   - [estruturas de dados - arrays](#estruturas-de-dados---arrays)
-    - [criando](#criando-1)
-    - [acessando](#acessando)
   - [estruturas de dados - data frame](#estruturas-de-dados---data-frame)
-    - [atribuindo nomes de colunas para dataframe já existente](#atribuindo-nomes-de-colunas-para-dataframe-já-existente)
-    - [lendo](#lendo)
-    - [coluna](#coluna)
-    - [juntando dois DataFrames](#juntando-dois-dataframes)
-    - [funções úteis](#funções-úteis)
 
 # fontes
  - [W3Schools](https://www.w3schools.com/r/)
@@ -195,4 +166,27 @@
         summarize( media = mean( coluna2 , na.rm = TRUE) )
       ```
 
- - 
+### Espacializando uma tabela 
+ - Pegando só latlong
+    ```
+    xy <- df[,c(4,5)]
+    ```
+
+ - Tirando NA
+    ```
+    xy$is_na = ifelse(is.na(xy$LONGITUDE), TRUE, FALSE)
+    index = xy$is_na == TRUE
+    xy[index, "LONGITUDE"] <- 0
+    xy[index, "LATITUDE"] <- 0
+
+    ```
+
+ - Spatial Points Data Frame
+    ```
+    spdf <- SpatialPointsDataFrame( coords = xy , data = df , proj4string = CRS("+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0") )
+    ```
+
+### Mostrando pontos
+    ggplot(as.data.frame(df),aes(x=LONGITUDE,y=LATITUDE))+
+    geom_point(col="red")+
+    coord_equal()
