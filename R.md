@@ -9,8 +9,8 @@
   - [arrays](#arrays)
   - [estruturas de dados - data frame](#estruturas-de-dados---data-frame)
 - [espacialização](#espacialização)
-  - [partindo de uma tabela](#partindo-de-uma-tabela)
-  - [mostrando pontos](#mostrando-pontos)
+  - [criando dataframe espacial de pontos](#criando-dataframe-espacial-de-pontos)
+  - [mostrando pontos de um dataframe com latlong diretamente](#mostrando-pontos-de-um-dataframe-com-latlong-diretamente)
 
 # fontes
  - [W3Schools](https://www.w3schools.com/r/)
@@ -172,7 +172,7 @@
       ```
 
 # espacialização
-## partindo de uma tabela 
+## criando dataframe espacial de pontos
  - Pegando só latlong
     ```
     xy <- df[,c(4,5)]
@@ -192,7 +192,7 @@
     spdf <- SpatialPointsDataFrame( coords = xy , data = df , proj4string = CRS("+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0") )
     ```
 
-## mostrando pontos
+## mostrando pontos de um dataframe com latlong diretamente
     ggplot(as.data.frame(df),aes(x=LONGITUDE,y=LATITUDE))+
     geom_point(col="red")+
     coord_equal()
