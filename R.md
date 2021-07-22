@@ -156,6 +156,8 @@
  - `which.max(df$coluna1)`, qual linha contém o valor máximo de coluna1
  - `rownames(df)[which.max(df$coluna1)]`, nome da linha que contém o valor máximo de coluna1
 
+### extraindo coluna
+ - `dfStopTimes[,c(1,2,4,5)]`, extrai colunas 1, 2, 4, 5
 
 ### juntando dois DataFrames
  - `New_Data_Frame <- rbind(Data_Frame1, Data_Frame2)`, verticalmente
@@ -169,6 +171,15 @@
       df %>%
         group_by( coluna1 ) %>%
         summarize( media = mean( coluna2 , na.rm = TRUE) )
+      ```
+
+ - extraindo apenas as linhas com `stop_sequence` máximo e mínimo DENTRO de `group_id`
+      ```
+      dataframe <- 
+        dataframe %>% 
+        group_by(trip_id) %>% 
+        filter( stop_sequence==max(stop_sequence) | stop_sequence==min(stop_sequence)  ) %>% 
+        ungroup
       ```
 
 # espacialização
