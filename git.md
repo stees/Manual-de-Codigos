@@ -1,4 +1,6 @@
-
+- [configurações básicas](#configurações-básicas)
+  - [usuário](#usuário)
+  - [proxy](#proxy)
 
 # configurações básicas
 ## usuário
