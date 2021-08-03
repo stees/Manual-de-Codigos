@@ -41,6 +41,7 @@
     - [separando duas colunas usando separador ` - `](#separando-duas-colunas-usando-separador--)
     - [juntando dois DataFrames com colunas de nomes iguais](#juntando-dois-dataframes-com-colunas-de-nomes-iguais)
     - [juntando dois DataFrames com colunas de nomes diferentes](#juntando-dois-dataframes-com-colunas-de-nomes-diferentes)
+    - [juntando dois DataFrames sendo que o segundo só adicionar algumas colunas](#juntando-dois-dataframes-sendo-que-o-segundo-só-adicionar-algumas-colunas)
   - [funções úteis](#funções-úteis)
     - [string pra datetime](#string-pra-datetime)
     - [extraindo horas, minutos, segundos de datetime](#extraindo-horas-minutos-segundos-de-datetime)
@@ -211,7 +212,10 @@
  - `New_Data_Frame <- cbind(Data_Frame1, Data_Frame2)`, horizontalmente
 
 ### juntando dois DataFrames com colunas de nomes diferentes
- - `NewDF <- merge(df1,df2,by="id")`, se já tiverem algum nome de coluna idêntic, nem precisaria falar no `by`
+ - `NewDF <- merge( df1 , df2 ,  by.x=c("coluna1emum") , by.y=c("coluna1emoutro") )`, se já tiverem algum nome de coluna idêntico, nem precisaria falar no `by`
+
+### juntando dois DataFrames sendo que o segundo só adicionar algumas colunas
+ - `NewDF <- merge( df1 , df2[ , c("coluna1","coluna2")] , by="id" )`
 
 ## funções úteis
 ### string pra datetime
