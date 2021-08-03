@@ -31,6 +31,22 @@
   - [arrays](#arrays)
     - [criando](#criando-1)
     - [acessando](#acessando)
+<<<<<<< HEAD
+- [estruturas de dados - data frame](#estruturas-de-dados---data-frame)
+  - [lendo arquivos](#lendo-arquivos)
+  - [colunas](#colunas)
+    - [atribuindo nomes de colunas para dataframe já existente](#atribuindo-nomes-de-colunas-para-dataframe-já-existente)
+    - [adicionando](#adicionando)
+    - [extraindo só algumas](#extraindo-só-algumas)
+    - [achando valores únicos](#achando-valores-únicos)
+    - [separando duas colunas usando separador ` - `](#separando-duas-colunas-usando-separador--)
+    - [juntando dois DataFrames com colunas de nomes iguais](#juntando-dois-dataframes-com-colunas-de-nomes-iguais)
+    - [juntando dois DataFrames com colunas de nomes diferentes](#juntando-dois-dataframes-com-colunas-de-nomes-diferentes)
+  - [funções úteis](#funções-úteis)
+    - [string pra datetime](#string-pra-datetime)
+    - [extraindo horas, minutos, segundos de datetime](#extraindo-horas-minutos-segundos-de-datetime)
+    - [tabela dinâmica](#tabela-dinâmica)
+=======
   - [estruturas de dados - data frame](#estruturas-de-dados---data-frame)
     - [atribuindo nomes de colunas para dataframe já existente](#atribuindo-nomes-de-colunas-para-dataframe-já-existente)
     - [lendo](#lendo)
@@ -38,6 +54,7 @@
     - [extraindo coluna](#extraindo-coluna)
     - [juntando dois DataFrames](#juntando-dois-dataframes)
     - [funções úteis](#funções-úteis)
+>>>>>>> d12c26ebd7d1d278f368dd1efb6e2cbf248360b7
 - [espacialização](#espacialização)
   - [criando dataframe espacial de pontos](#criando-dataframe-espacial-de-pontos)
   - [mostrando pontos de um dataframe com latlong diretamente](#mostrando-pontos-de-um-dataframe-com-latlong-diretamente)
@@ -64,6 +81,9 @@
 
 ### extrair pedaços
  - `substr( var , start = 1 , stop = 2 )`
+ - `library(stringr)` e `str_sub( var , -6 , -1 )`, aceita valores negativos vindo pela direita
+ - `library(stringr)` e `str_locate(pattern = "2", "the2quickbrownfoxeswere2tired")`, para achar a primeira ocorrência
+ - `library(stringr)` e `str_locate_all(pattern = "2", "the2quickbrownfoxeswere2tired")`, para achar todas as ocorrências
 
 ### preservar quebra de linha na atribuição da variável
  - `cat( var )`
@@ -158,16 +178,17 @@
 ### acessando
  - `dim(multiarray)` linhas, colunas e dimensões
 
-## estruturas de dados - data frame
+# estruturas de dados - data frame
+## lendo arquivos
+ - `read.csv( "./arquivo.txt" , header = TRUE , encoding="UTF-8" )`, lê CSV normal
+ - `read.csv2( "./arquivo.txt" , header = TRUE , encoding="UTF-8" )`, para o caso de CSV com separador decimal `,` e separador de colunas `;` (Brasil)
+ - `fread("data.csv.gz")`, lê CSV comprimido em GZ usando `library(data.table)` e pacote R.utils
+
+## colunas
 ### atribuindo nomes de colunas para dataframe já existente
  - `colnames( df ) <- c( "col1","col2","col3" )`
 
-### lendo
- - `read.csv( "./arquivo.txt" , header = TRUE )`, lê CSV normal
- - `read.csv2( "./arquivo.txt" , header = TRUE )`, para o caso de CSV com separador decimal `,` e separador de colunas `;` (Brasil)
- - `fread("data.csv.gz")`, lê CSV comprimido em GZ usando `library(data.table)` e pacote R.utils
-
-### coluna
+### adicionando
  - `df$coluna <- fórmula `, adicionando coluna usando alguma fórmula
 
  - adicionando coluna com várias condições
@@ -186,17 +207,31 @@
  - `which.max(df$coluna1)`, qual linha contém o valor máximo de coluna1
  - `rownames(df)[which.max(df$coluna1)]`, nome da linha que contém o valor máximo de coluna1
 
-### extraindo coluna
+### extraindo só algumas
  - `dfStopTimes[,c(1,2,4,5)]`, extrai colunas 1, 2, 4, 5
 
-### juntando dois DataFrames
+### achando valores únicos
+ - `unique( dataframe[ c("coluna1") ] )`
+
+### separando duas colunas usando separador ` - `
+ - `df <- df %>% separate(Estación1a2, c("Estación1", "Estación2"), " - ")`
+
+### juntando dois DataFrames com colunas de nomes iguais
  - `New_Data_Frame <- rbind(Data_Frame1, Data_Frame2)`, verticalmente
  - `New_Data_Frame <- cbind(Data_Frame1, Data_Frame2)`, horizontalmente
 
-### funções úteis
+### juntando dois DataFrames com colunas de nomes diferentes
+ - `NewDF <- merge(df1,df2,by="id")`, se já tiverem algum nome de coluna idêntic, nem precisaria falar no `by`
+
+## funções úteis
+### string pra datetime
  - `df$DATAHORA <- as.POSIXct( df$DATAHORA , format="%m-%d-%Y %H:%M:%S" , tz="GMT" )`, transforma em `datetime` o texto da coluna `DATAHORA` do dataframe `df`, que tá em formato `mm-dd-yyyy hh:mm:ss`
 
- - tabela dinâmica de `df`, nas linhas coluna1, nos valores a média da coluna2 removendo os NA indo para coluna "media", [fonte](https://rstudio-conf-2020.github.io/r-for-excel/pivot-tables.html#group_by-summarize)
+### extraindo horas, minutos, segundos de datetime
+ - `library(lubridate)` e então `hour( coluna1 )` ou `minute` ou `second`
+
+### tabela dinâmica
+ - tabela dinâmica de `df`, nas linhas = coluna1, nos valores = média da coluna2 removendo os NA indo para coluna "media", [fonte](https://rstudio-conf-2020.github.io/r-for-excel/pivot-tables.html#group_by-summarize)
       ```
       df %>%
         group_by( coluna1 ) %>%
