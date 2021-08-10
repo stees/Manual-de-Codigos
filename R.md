@@ -43,6 +43,7 @@
     - [juntando dois DataFrames com colunas de nomes diferentes](#juntando-dois-dataframes-com-colunas-de-nomes-diferentes)
     - [juntando dois DataFrames sendo que o segundo só adicionar algumas colunas](#juntando-dois-dataframes-sendo-que-o-segundo-só-adicionar-algumas-colunas)
   - [funções úteis](#funções-úteis)
+    - [transformando coluna em vetor simples](#transformando-coluna-em-vetor-simples)
     - [string pra datetime](#string-pra-datetime)
     - [extraindo horas, minutos, segundos de datetime](#extraindo-horas-minutos-segundos-de-datetime)
     - [tabela dinâmica](#tabela-dinâmica)
@@ -218,6 +219,9 @@
  - `NewDF <- merge( df1 , df2[ , c("coluna1","coluna2")] , by="id" )`
 
 ## funções úteis
+### transformando coluna em vetor simples
+ - `unlist( df$coluna )`
+
 ### string pra datetime
  - `df$DATAHORA <- as.POSIXct( df$DATAHORA , format="%m-%d-%Y %H:%M:%S" , tz="GMT" )`, transforma em `datetime` o texto da coluna `DATAHORA` do dataframe `df`, que tá em formato `mm-dd-yyyy hh:mm:ss`
 
