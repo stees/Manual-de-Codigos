@@ -5,6 +5,12 @@
 
 # Docker Windows
 ## Configurações gerais
+### Erro de não estar no `docker-users`
+ - Fonte: https://avidosguy.wordpress.com/2019/10/10/solved-you-are-not-allowed-to-use-docker-you-must-be-in-the-docker-users-group/
+
+ - Iniciar > computer management > local users and groups > groups > docker users > botão direito > adicionar ao grupo > digitar nome de usuário e verificar, dar ok
+
+
 ### Mudando o drive do Docker logo depois de instalar
  - Fonte: https://stackoverflow.com/a/63752264
  - Mudando para a pasta `D:\Docker\wsl\data`
