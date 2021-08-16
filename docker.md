@@ -1,7 +1,15 @@
 - [Docker Windows](#docker-windows)
   - [Configurações gerais](#configurações-gerais)
+    - [Erro de não estar no `docker-users`](#erro-de-não-estar-no-docker-users)
+    - [Mudando o drive do Docker logo depois de instalar](#mudando-o-drive-do-docker-logo-depois-de-instalar)
+    - [Reduzindo uso de memória do processo `vmmem`](#reduzindo-uso-de-memória-do-processo-vmmem)
   - [Operações gerais](#operações-gerais)
+    - [Copiando arquivo de/para container](#copiando-arquivo-depara-container)
+    - [Instalando bibliotecas novas em imagem puxada pronta do Dockerhub sem editar o Dockerfile](#instalando-bibliotecas-novas-em-imagem-puxada-pronta-do-dockerhub-sem-editar-o-dockerfile)
   - [Containers](#containers)
+    - [PostGIS](#postgis)
+    - [Jupyter Notebook](#jupyter-notebook)
+    - [R](#r)
 
 # Docker Windows
 ## Configurações gerais
