@@ -1,10 +1,24 @@
 - [Docker Windows](#docker-windows)
   - [Configurações gerais](#configurações-gerais)
+    - [Erro de não estar no `docker-users`](#erro-de-não-estar-no-docker-users)
+    - [Mudando o drive do Docker logo depois de instalar](#mudando-o-drive-do-docker-logo-depois-de-instalar)
+    - [Reduzindo uso de memória do processo `vmmem`](#reduzindo-uso-de-memória-do-processo-vmmem)
   - [Operações gerais](#operações-gerais)
+    - [Copiando arquivo de/para container](#copiando-arquivo-depara-container)
+    - [Instalando bibliotecas novas em imagem puxada pronta do Dockerhub sem editar o Dockerfile](#instalando-bibliotecas-novas-em-imagem-puxada-pronta-do-dockerhub-sem-editar-o-dockerfile)
   - [Containers](#containers)
+    - [PostGIS](#postgis)
+    - [Jupyter Notebook](#jupyter-notebook)
+    - [R](#r)
 
 # Docker Windows
 ## Configurações gerais
+### Erro de não estar no `docker-users`
+ - Fonte: https://avidosguy.wordpress.com/2019/10/10/solved-you-are-not-allowed-to-use-docker-you-must-be-in-the-docker-users-group/
+
+ - Iniciar > computer management > local users and groups > groups > docker users > botão direito > adicionar ao grupo > digitar nome de usuário e verificar, dar ok
+
+
 ### Mudando o drive do Docker logo depois de instalar
  - Fonte: https://stackoverflow.com/a/63752264
  - Mudando para a pasta `D:\Docker\wsl\data`
