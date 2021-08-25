@@ -47,6 +47,7 @@
     - [string pra datetime](#string-pra-datetime)
     - [extraindo horas, minutos, segundos de datetime](#extraindo-horas-minutos-segundos-de-datetime)
     - [tabela dinâmica](#tabela-dinâmica)
+    - [contando duplicados](#contando-duplicados)
 - [espacialização](#espacialização)
   - [criando dataframe espacial de pontos](#criando-dataframe-espacial-de-pontos)
   - [mostrando pontos de um dataframe com latlong diretamente](#mostrando-pontos-de-um-dataframe-com-latlong-diretamente)
@@ -244,6 +245,9 @@
         filter( stop_sequence==max(stop_sequence) | stop_sequence==min(stop_sequence)  ) %>% 
         ungroup
       ```
+
+### contando duplicados
+ - `df %>% group_by( coluna1 , coluna2 ) %>% summarize(n=n()) %>% view()`
 
 # espacialização
 ## criando dataframe espacial de pontos
