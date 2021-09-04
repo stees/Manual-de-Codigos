@@ -4,9 +4,9 @@
 
 # configurações básicas
 ## usuário
-    git config --global user.name “nome”
+    git config --global user.name "nome
 
-    git config –-global user.email “email”
+    git config –-global user.email "email"
 
 ## proxy
  - usuário local em `proxyUsername` e senha em `proxyPassword`
