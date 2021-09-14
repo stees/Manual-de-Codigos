@@ -49,6 +49,8 @@
     - [tabela dinâmica](#tabela-dinâmica)
     - [contando duplicados](#contando-duplicados)
 - [espacialização](#espacialização)
+  - [fontes](#fontes-1)
+  - [pacotes](#pacotes)
   - [lendo e visualizando camada de geopackage](#lendo-e-visualizando-camada-de-geopackage)
   - [criando dataframe espacial de pontos](#criando-dataframe-espacial-de-pontos)
   - [mostrando pontos de um dataframe com latlong diretamente](#mostrando-pontos-de-um-dataframe-com-latlong-diretamente)
@@ -251,10 +253,15 @@
  - `df %>% group_by( coluna1 , coluna2 ) %>% summarize(n=n()) %>% view()`
 
 # espacialização
+## fontes
+ - https://datacarpentry.org/r-raster-vector-geospatial/08-vector-plot-shapefiles-custom-legend/index.html
+
+## pacotes
     ```
     library(sf)
     library(ggplot2)
     ```
+
 
 ## lendo e visualizando camada de geopackage
  - Lendo
