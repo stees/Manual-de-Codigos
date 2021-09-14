@@ -256,9 +256,11 @@
 
 ## lendo e visualizando camada de geopackage
  - Lendo
+
     teste <- st_read( "arquivo.gpkg" , layer = "logradouros" )
 
  - Visualizando
+
     ggplot() + 
       geom_sf( data = new_vector ,  color = "black" , size = 1 ) +
       geom_sf( data = teste )
@@ -266,15 +268,18 @@
 
 ## criando dataframe espacial de pontos
  - Pegando só latlong
+
     xy <- df[,c(4,5)]
 
  - Tirando NA
+
     xy$is_na = ifelse(is.na(xy$LONGITUDE), TRUE, FALSE)
     index = xy$is_na == TRUE
     xy[index, "LONGITUDE"] <- 0
     xy[index, "LATITUDE"] <- 0
 
  - Spatial Points Data Frame
+
     spdf <- SpatialPointsDataFrame( coords = xy , data = df , proj4string = CRS("+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0") )
 
 ## mostrando pontos de um dataframe com latlong diretamente
