@@ -49,6 +49,7 @@
     - [tabela dinâmica](#tabela-dinâmica)
     - [contando duplicados](#contando-duplicados)
 - [espacialização](#espacialização)
+  - [lendo e visualizando camada de geopackage](#lendo-e-visualizando-camada-de-geopackage)
   - [criando dataframe espacial de pontos](#criando-dataframe-espacial-de-pontos)
   - [mostrando pontos de um dataframe com latlong diretamente](#mostrando-pontos-de-um-dataframe-com-latlong-diretamente)
 
@@ -250,6 +251,25 @@
  - `df %>% group_by( coluna1 , coluna2 ) %>% summarize(n=n()) %>% view()`
 
 # espacialização
+    ```
+    library(sf)
+    library(ggplot2)
+    ```
+
+## lendo e visualizando camada de geopackage
+ - Lendo
+    ```
+    teste <- st_read( "arquivo.gpkg" , layer = "logradouros" )
+    ```
+
+ - Visualizando
+    ```
+    ggplot() + 
+      geom_sf( data = new_vector ,  color = "black" , size = 1 ) +
+      geom_sf( data = teste )
+    ```
+
+
 ## criando dataframe espacial de pontos
  - Pegando só latlong
     ```
