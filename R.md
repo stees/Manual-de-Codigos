@@ -52,8 +52,7 @@
   - [fontes](#fontes-1)
   - [pacotes](#pacotes)
   - [lendo e visualizando camada de geopackage](#lendo-e-visualizando-camada-de-geopackage)
-  - [criando dataframe espacial de pontos](#criando-dataframe-espacial-de-pontos)
-  - [mostrando pontos de um dataframe com latlong diretamente](#mostrando-pontos-de-um-dataframe-com-latlong-diretamente)
+  - [junção espacial](#junção-espacial)
 
 # fontes
  - [W3Schools](https://www.w3schools.com/r/)
@@ -277,27 +276,10 @@
     ```
 
 
-## criando dataframe espacial de pontos
- - Pegando só latlong
+## junção espacial
+ - parâmetro = feição de `linhas` dentro de `quadras_borda`
     ```
-    xy <- df[,c(4,5)]
-    ```
-
- - Tirando NA
-    ```
-    xy$is_na = ifelse(is.na(xy$LONGITUDE), TRUE, FALSE)
-    index = xy$is_na == TRUE
-    xy[index, "LONGITUDE"] <- 0
-    xy[index, "LATITUDE"] <- 0
-
+    linhas %>% st_join( quadras_borda , join = st_within, left = FALSE)
     ```
 
- - Spatial Points Data Frame
-    ```
-    spdf <- SpatialPointsDataFrame( coords = xy , data = df , proj4string = CRS("+proj=longlat +datum=WGS84 +ellps=WGS84 +towgs84=0,0,0") )
-    ```
-
-## mostrando pontos de um dataframe com latlong diretamente
-    ggplot(as.data.frame(df),aes(x=LONGITUDE,y=LATITUDE))+
-    geom_point(col="red")+
-    coord_equal()
+ - 
