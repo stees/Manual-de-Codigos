@@ -43,6 +43,7 @@
     - [juntando dois DataFrames com colunas de nomes diferentes](#juntando-dois-dataframes-com-colunas-de-nomes-diferentes)
     - [juntando dois DataFrames sendo que o segundo só adicionar algumas colunas](#juntando-dois-dataframes-sendo-que-o-segundo-só-adicionar-algumas-colunas)
   - [funções úteis](#funções-úteis)
+    - [transformando tabela longa em tabela larga (tabela dinâmica)](#transformando-tabela-longa-em-tabela-larga-tabela-dinâmica)
     - [transformando coluna em vetor simples](#transformando-coluna-em-vetor-simples)
     - [string pra datetime](#string-pra-datetime)
     - [extraindo horas, minutos, segundos de datetime](#extraindo-horas-minutos-segundos-de-datetime)
@@ -222,6 +223,9 @@
  - `NewDF <- merge( df1 , df2[ , c("coluna1","coluna2")] , by="id" )`
 
 ## funções úteis
+### transformando tabela longa em tabela larga (tabela dinâmica)
+ - `df.wide <- pivot_wider(df.long, names_from = Quarter, values_from = Delay)` (https://mgimond.github.io/ES218/Week03b.html)
+
 ### transformando coluna em vetor simples
  - `unlist( df$coluna )`
 
