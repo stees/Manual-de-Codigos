@@ -17,6 +17,7 @@
     - [lógica](#lógica)
     - [operadores](#operadores)
   - [funções](#funções)
+    - [gerando imagem de uma tabela](#gerando-imagem-de-uma-tabela)
     - [criando](#criando)
     - [atribuindo variável localmente](#atribuindo-variável-localmente)
     - [atribuindo variável global dentro de função](#atribuindo-variável-global-dentro-de-função)
@@ -114,6 +115,14 @@
        - `matrix1 %*% matrix2`
 
 ## funções
+### gerando imagem de uma tabela
+
+    library(gridExtra)
+    png("./pasta/arquivo.png")
+    grid.arrange( tableGrob( df ) )
+    dev.off()
+
+
 ### criando
 
     myfunction <- function( var1, x ){
