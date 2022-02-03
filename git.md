@@ -4,7 +4,7 @@
 
 # configurações básicas
 ## usuário
-    git config --global user.name "nome
+    git config --global user.name "nome"
 
     git config –-global user.email "email"
 
