@@ -5,6 +5,9 @@
 ## rodando comandos do CMD
 `cmd /c --% COMANDO` (--% é para PowerShell não tentar processar o que vem depois como sua própria sintaxe)
 
+## download
+`Invoke-WebRequest "LINK" -OutFile OUTPUT.zip` (LINK baixado e exportado no arquivo OUTPUT.zip)
+
 # texto
 ## justapor arquivos de texto
 `cat example*.txt | sc allexamples.txt`
