@@ -55,7 +55,10 @@
   - [pacotes](#pacotes)
   - [lendo e visualizando camada de geopackage](#lendo-e-visualizando-camada-de-geopackage)
   - [junção espacial](#junção-espacial)
-  - [transformando camada de polígono em camada de ponto de pólo de inacessibilidade dos polígonos](#transformando-camada-de-polígono-em-camada-de-ponto-de-pólo-de-inacessibilidade-dos-polígonos)
+    - [camada dentro da outra](#camada-dentro-da-outra)
+    - [função que só extrai de `menor_layer` apenas as que tão totalmente dentro de `maior_layer`](#função-que-só-extrai-de-menor_layer-apenas-as-que-tão-totalmente-dentro-de-maior_layer)
+  - [transformações](#transformações)
+    - [transformando camada de polígono em camada de ponto de pólo de inacessibilidade dos polígonos](#transformando-camada-de-polígono-em-camada-de-ponto-de-pólo-de-inacessibilidade-dos-polígonos)
 
 # fontes
  - [W3Schools](https://www.w3schools.com/r/)
@@ -291,13 +294,64 @@
 
 
 ## junção espacial
+### camada dentro da outra
  - `linhas` recebe informação de `quadras_borda` nas quais está dentro (`st_within`), removendo os que não receberem nada (`left = FALSE`)
     ```
     linhas |> st_join( quadras_borda , join = st_within, left = FALSE)
     ```
 
+### função que só extrai de `menor_layer` apenas as que tão totalmente dentro de `maior_layer`
+apenas_dentro <- function( maior_gpkg , maior_layer , maior_index , menor_gpkg , menor_layer , menor_index , menor_filtro_index , menor_filtro_excluir ){
+  
+  maior <- st_read( maior_gpkg , layer = maior_layer ) |>
+    select( all_of(maior_index) )
+  
+  menor <- st_read( menor_gpkg , layer = menor_layer )
+  
+  if( length(menor_filtro_excluir) > 0 ){
+   menor <- menor |> 
+     filter( !( !!as.symbol(menor_filtro_index) %in% menor_filtro_excluir ) ) 
+  }
+  
+  menor <- menor |>
+    mutate( 
+            area_ha = as.numeric( st_area(geom) )/10000
+          )
+  
+  lista <- c( menor_index , maior_index )
+  
+  menor_int_maior <- st_intersection( menor , maior  ) |>
+    mutate( area_ha_intersect = as.numeric( st_area(geom) )/10000 ) |>
+    st_drop_geometry() |>
+    group_by( across(lista) , area_ha ) |>
+    mutate( area_ha_intersect = max(area_ha_intersect) ) |>
+    ungroup() |>
+    arrange( menor_index ) |>
+    mutate( overlap = round( area_ha_intersect / area_ha , 2 ) ) |>
+    select( all_of(lista) , overlap )
+  
+  menor_dentro_maior <- menor |> 
+    st_drop_geometry() |>
+    left_join( menor_int_maior ) |>
+    filter( overlap >= 0.99 ) |>
+    select( menor_index , maior_index , overlap ) |>
+    distinct()
+  
+  repetidos <- menor_dentro_maior |> count( across(all_of(menor_index)) ) |> filter( n > 1 ) |> pull( var = 1 )
+  
+  menor_dentro_maior <- menor_dentro_maior |>
+    filter( 
+            !(!!as.symbol(menor_index) %in% repetidos)
+            )
+  
+  
+  
+  return( menor_dentro_maior )
+  
+}
 
-## transformando camada de polígono em camada de ponto de pólo de inacessibilidade dos polígonos
+## transformações
+### transformando camada de polígono em camada de ponto de pólo de inacessibilidade dos polígonos
 ```
 input_poi <- input |> 
   mutate( poi = polylabelr::poi(geom) ) |>
