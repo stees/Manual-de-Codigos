@@ -55,6 +55,7 @@
   - [pacotes](#pacotes)
   - [lendo e visualizando camada de geopackage](#lendo-e-visualizando-camada-de-geopackage)
   - [junção espacial](#junção-espacial)
+  - [transformando camada de polígono em camada de ponto de pólo de inacessibilidade dos polígonos](#transformando-camada-de-polígono-em-camada-de-ponto-de-pólo-de-inacessibilidade-dos-polígonos)
 
 # fontes
  - [W3Schools](https://www.w3schools.com/r/)
@@ -219,7 +220,7 @@
  - `unique( dataframe[ c("coluna1") ] )`
 
 ### separando duas colunas usando separador ` - `
- - `df <- df %>% separate(Estación1a2, c("Estación1", "Estación2"), " - ")`
+ - `df <- df |> separate(Estación1a2, c("Estación1", "Estación2"), " - ")`
 
 ### juntando dois DataFrames com colunas de nomes iguais
  - `New_Data_Frame <- rbind(Data_Frame1, Data_Frame2)`, verticalmente
@@ -247,22 +248,22 @@
 ### tabela dinâmica
  - tabela dinâmica de `df`, nas linhas = coluna1, nos valores = média da coluna2 removendo os NA indo para coluna "media", [fonte](https://rstudio-conf-2020.github.io/r-for-excel/pivot-tables.html#group_by-summarize)
       ```
-      df %>%
-        group_by( coluna1 ) %>%
+      df |>
+        group_by( coluna1 ) |>
         summarize( media = mean( coluna2 , na.rm = TRUE) )
       ```
 
  - extraindo apenas as linhas com `stop_sequence` máximo e mínimo DENTRO de `group_id`
       ```
       dataframe <- 
-        dataframe %>% 
-        group_by(trip_id) %>% 
-        filter( stop_sequence==max(stop_sequence) | stop_sequence==min(stop_sequence)  ) %>% 
+        dataframe |> 
+        group_by(trip_id) |> 
+        filter( stop_sequence==max(stop_sequence) | stop_sequence==min(stop_sequence)  ) |> 
         ungroup
       ```
 
 ### contando duplicados
- - `df %>% group_by( coluna1 , coluna2 ) %>% summarize(n=n()) %>% view()`
+ - `df |> group_by( coluna1 , coluna2 ) |> summarize(n=n()) |> view()`
 
 # espacialização
 ## fontes
@@ -290,9 +291,18 @@
 
 
 ## junção espacial
- - parâmetro = feição de `linhas` dentro de `quadras_borda`
+ - `linhas` recebe informação de `quadras_borda` nas quais está dentro (`st_within`), removendo os que não receberem nada (`left = FALSE`)
     ```
-    linhas %>% st_join( quadras_borda , join = st_within, left = FALSE)
+    linhas |> st_join( quadras_borda , join = st_within, left = FALSE)
     ```
 
- - 
+
+## transformando camada de polígono em camada de ponto de pólo de inacessibilidade dos polígonos
+```
+input_poi <- input |> 
+  mutate( poi = polylabelr::poi(geom) ) |>
+  unnest_wider( poi ) |>
+  mutate( geom = paste0( "POINT(" , x , " " , y , ")" ) ) |>
+  st_as_sf( wkt = "geom" ) |>
+  select( -c(x,y,dist))
+```
