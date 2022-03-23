@@ -1,5 +1,8 @@
 - [fontes](#fontes)
 - [geral](#geral)
+  - [configurando proxy](#configurando-proxy)
+  - [baixar, descompactar e ler arquivos zipados](#baixar-descompactar-e-ler-arquivos-zipados)
+  - [lendo WFS do GeoSampa](#lendo-wfs-do-geosampa)
   - [variável](#variável)
     - [atribuindo globalmente](#atribuindo-globalmente)
     - [tipo - checar](#tipo---checar)
@@ -65,6 +68,65 @@
  - [Tutorials Point](https://www.tutorialspoint.com/r/)
 
 # geral
+## configurando proxy
+ - `file.edit('~/.Renviron')`
+ - No arquivo que abrir, inserir:
+```
+options(internet.info = 0)
+
+http_proxy="http://proxyLogin:proxyPassword@proxy.server.com:port"
+```
+
+## baixar, descompactar e ler arquivos zipados
+```
+DL_unzip_read <- function( nome , link , nomeEsperado , extensao ){
+  
+  dltemp <- tempfile()
+  
+  # baixando do site
+  download.file(
+    link,
+    dltemp,
+    mode = "wb"
+  )
+  
+  # pasta temporária para descompactar
+  td <- paste0( tempdir() , "\\" , nome )
+  
+  # descompactando
+  unzip( dltemp , ex = td )
+  
+  # pegando só o arquivo de interesse e devolvendo
+  file <- Sys.glob( file.path( td , "*", paste0( nomeEsperado , "*.",extensao) ) )
+  return(file)
+  
+}
+```
+
+## lendo WFS do GeoSampa
+ - adicional no caso de haver paginação
+
+
+```
+le_WFS <- function( camada , adicional = "" ){
+  
+  link <- paste0( 
+                  "http://wfs.geosampa.prefeitura.sp.gov.br/geoserver/geoportal/wfs?" ,  
+                  "service=WFS",
+                  "&version=2.0.0",
+                  "&request=GetFeature",
+                  "&typename=",
+                  camada,
+                  "&outputFormat=application/json",
+                  adicional
+                )
+  
+  return(st_read(link))
+
+  
+}
+```
+
 ## variável
 ### atribuindo globalmente
  - `var <- "text"` ou `var <- 5`
