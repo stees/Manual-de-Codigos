@@ -104,8 +104,7 @@ DL_unzip_read <- function( nome , link , nomeEsperado , extensao ){
 ```
 
 ## lendo WFS do GeoSampa
- - adicional no caso de haver paginação
-
+ - Para camadas menores
 
 ```
 le_WFS <- function( camada , adicional = "" ){
@@ -125,6 +124,29 @@ le_WFS <- function( camada , adicional = "" ){
 
   
 }
+```
+
+ - Para camadas maiores
+
+```
+n <- 1000
+
+purrr::map_dfr( 
+                seq(0,3000,n) , ~le_WFS("geoportal:ponto_onibus", paste0( "&count=" , n , "&startIndex=" , . ) )
+              )
+
+```
+
+ - Usando filtros direto no WFS
+
+```
+
+zon_temp <- le_WFS( 
+                    "geoportal:zoneamento_2016_map1" , 
+                    "&Filter=<Filter><Or><PropertyIsEqualTo><PropertyName>tx_zoneamento_perimetro</PropertyName><Literal>ZOE</Literal></PropertyIsEqualTo><PropertyIsEqualTo><PropertyName>tx_zoneamento_perimetro</PropertyName><Literal>ZEPAM</Literal></PropertyIsEqualTo><PropertyIsEqualTo><PropertyName>tx_zoneamento_perimetro</PropertyName><Literal>ZEP</Literal></PropertyIsEqualTo></Or></Filter>"
+                  )
+
+
 ```
 
 ## variável
