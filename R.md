@@ -64,7 +64,7 @@
     - [transformando camada de polígono em camada de ponto de pólo de inacessibilidade dos polígonos](#transformando-camada-de-polígono-em-camada-de-ponto-de-pólo-de-inacessibilidade-dos-polígonos)
 - [gráficos](#gráficos)
   - [barras](#barras)
-    - [controlando a ordem das barras e da legenda](#controlando-a-ordem-das-barras-e-da-legenda)
+    - [invertendo a ordem para ficar certo com coord_flip](#invertendo-a-ordem-para-ficar-certo-com-coord_flip)
 
 # fontes
  - [W3Schools](https://www.w3schools.com/r/)
@@ -455,15 +455,12 @@ input_poi <- input |>
 
 # gráficos
 ## barras
-### controlando a ordem das barras e da legenda
+### invertendo a ordem para ficar certo com coord_flip
 
 ```
-scale_fill_manual( 
-                  values =  c("red" , "#05DC01" , "#069D03") , 
-                  breaks = rev(jk_05_211_listaCategorias),
-                  labels = jk_05_211_listaCategorias
-                 ) +
-coord_flip()
+  coord_flip() +
+  ggplot( aes( fill = forcats::fct_rev(Categoria_ordem_original) , x = x , y = y ) ) +
+  scale_fill_manual( values =  c("red" , "#05DC01" , "#069D03") , breaks = Categoria_ordem_original )
 
 ```
  
