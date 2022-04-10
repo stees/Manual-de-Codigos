@@ -388,6 +388,8 @@ zon_temp <- le_WFS(
     ```
 
 ### função que só extrai de `menor_layer` apenas as que tão totalmente dentro de `maior_layer`
+
+```
 apenas_dentro <- function( maior_gpkg , maior_layer , maior_index , menor_gpkg , menor_layer , menor_index , menor_filtro_index , menor_filtro_excluir ){
   
   maior <- st_read( maior_gpkg , layer = maior_layer ) |>
@@ -436,6 +438,7 @@ apenas_dentro <- function( maior_gpkg , maior_layer , maior_index , menor_gpkg ,
   return( menor_dentro_maior )
   
 }
+```
 
 ## transformações
 ### transformando camada de polígono em camada de ponto de pólo de inacessibilidade dos polígonos
