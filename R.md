@@ -62,6 +62,9 @@
     - [função que só extrai de `menor_layer` apenas as que tão totalmente dentro de `maior_layer`](#função-que-só-extrai-de-menor_layer-apenas-as-que-tão-totalmente-dentro-de-maior_layer)
   - [transformações](#transformações)
     - [transformando camada de polígono em camada de ponto de pólo de inacessibilidade dos polígonos](#transformando-camada-de-polígono-em-camada-de-ponto-de-pólo-de-inacessibilidade-dos-polígonos)
+- [gráficos](#gráficos)
+  - [barras](#barras)
+    - [controlando a ordem das barras e da legenda](#controlando-a-ordem-das-barras-e-da-legenda)
 
 # fontes
  - [W3Schools](https://www.w3schools.com/r/)
@@ -97,7 +100,7 @@ DL_unzip_read <- function( nome , link , nomeEsperado , extensao ){
   unzip( dltemp , ex = td )
   
   # pegando só o arquivo de interesse e devolvendo
-  file <- Sys.glob( file.path( td , "*", paste0( nomeEsperado , "*.",extensao) ) )
+  file <- Sys.glob( file.path( td , paste0( nomeEsperado , "*.",extensao) ) )
   return(file)
   
 }
@@ -444,3 +447,20 @@ input_poi <- input |>
   st_as_sf( wkt = "geom" ) |>
   select( -c(x,y,dist))
 ```
+
+---
+
+# gráficos
+## barras
+### controlando a ordem das barras e da legenda
+
+```
+scale_fill_manual( 
+                  values =  c("red" , "#05DC01" , "#069D03") , 
+                  breaks = rev(jk_05_211_listaCategorias),
+                  labels = jk_05_211_listaCategorias
+                 ) +
+coord_flip()
+
+```
+ 
