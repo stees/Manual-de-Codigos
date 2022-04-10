@@ -64,7 +64,7 @@
     - [transformando camada de polígono em camada de ponto de pólo de inacessibilidade dos polígonos](#transformando-camada-de-polígono-em-camada-de-ponto-de-pólo-de-inacessibilidade-dos-polígonos)
 - [gráficos](#gráficos)
   - [barras](#barras)
-    - [invertendo a ordem para ficar certo com coord_flip](#invertendo-a-ordem-para-ficar-certo-com-coord_flip)
+    - [invertendo a ordem de barra empilhada para ficar certo com coord_flip](#invertendo-a-ordem-de-barra-empilhada-para-ficar-certo-com-coord_flip)
 
 # fontes
  - [W3Schools](https://www.w3schools.com/r/)
@@ -455,7 +455,7 @@ input_poi <- input |>
 
 # gráficos
 ## barras
-### invertendo a ordem para ficar certo com coord_flip
+### invertendo a ordem de barra empilhada para ficar certo com coord_flip
 
 ```
   coord_flip() +
