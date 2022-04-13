@@ -60,6 +60,7 @@
   - [junção espacial](#junção-espacial)
     - [camada dentro da outra](#camada-dentro-da-outra)
     - [função que só extrai de `menor_layer` apenas as que tão totalmente dentro de `maior_layer`](#função-que-só-extrai-de-menor_layer-apenas-as-que-tão-totalmente-dentro-de-maior_layer)
+    - [contando pontos no polígono](#contando-pontos-no-polígono)
   - [transformações](#transformações)
     - [transformando camada de polígono em camada de ponto de pólo de inacessibilidade dos polígonos](#transformando-camada-de-polígono-em-camada-de-ponto-de-pólo-de-inacessibilidade-dos-polígonos)
 - [gráficos](#gráficos)
@@ -438,6 +439,18 @@ apenas_dentro <- function( maior_gpkg , maior_layer , maior_index , menor_gpkg ,
   return( menor_dentro_maior )
   
 }
+```
+
+### contando pontos no polígono
+
+```
+
+polígono %>%
+  mutate(
+          cont_ponto = lengths( st_intersects( . , pontos ) )
+        )
+
+
 ```
 
 ## transformações
