@@ -63,6 +63,7 @@
     - [contando pontos no polígono](#contando-pontos-no-polígono)
   - [transformações](#transformações)
     - [transformando camada de polígono em camada de ponto de pólo de inacessibilidade dos polígonos](#transformando-camada-de-polígono-em-camada-de-ponto-de-pólo-de-inacessibilidade-dos-polígonos)
+    - [divisão de polígono por área de influência de pontos](#divisão-de-polígono-por-área-de-influência-de-pontos)
 - [gráficos](#gráficos)
   - [barras](#barras)
     - [invertendo a ordem de barra empilhada para ficar certo com coord_flip](#invertendo-a-ordem-de-barra-empilhada-para-ficar-certo-com-coord_flip)
@@ -462,6 +463,20 @@ input_poi <- input |>
   mutate( geom = paste0( "POINT(" , x , " " , y , ")" ) ) |>
   st_as_sf( wkt = "geom" ) |>
   select( -c(x,y,dist))
+```
+
+### divisão de polígono por área de influência de pontos
+
+```
+
+pontos |> 
+  st_union() |> 
+  st_voronoi() |> 
+  st_collection_extract() |> 
+  st_intersection( poligono ) |>
+  st_sf |>
+  st_join( pontos , join = st_contains  )
+
 ```
 
 ---
